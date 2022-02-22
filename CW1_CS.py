@@ -15,26 +15,46 @@ print("3.Display all the countries Covid-19 Data ")
 print("4.Compare two countries")
     
 print("Please enter  the  option number :")
-choosenOption=input()
+choosenOption=int(input())
 option(choosenOption)
 
 def option(chooseOption):
+    if chooseOption==1:
+        currentTrends()
+    elif chooseOption==2:
+        infoCovidCountry()
+    elif chooseOption==3:
+        displayAllCovidData()
+    elif chooseOption==4:
+        CompareCountryCovid19()
+    else:
+        print("Please choose the numbers from the menu.")
+        
+        
+def currentTrends():
     
+def infoCovidCountry():
+
+def  displayAllCovidData():
+
+def  CompareCountryCovid19():
+
+
+
+     
     
     
 
 
 #def inputFromFile():
-deathToll("india")  
+#deathToll("india")  
     
-
-def deathToll(targetcountry):
-    deathToll=0
-    country=data["Cumulative_deaths"]
-    if(tragetCountry==country):
-        deathToll+=tragetCountry
-    else:
-        deathToll+=0
-    print(deathToll)
-        
+#def deathToll(targetcountry):
+#    deathToll=0
+#    country=data["Cumulative_deaths"]
+#    if(tragetCountry==country):
+#        deathToll+=tragetCountry
+#    else:
+#        deathToll+=0
+#    print(deathToll)
         
