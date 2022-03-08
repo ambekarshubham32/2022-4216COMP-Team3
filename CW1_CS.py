@@ -35,6 +35,14 @@ print(data)
 print("Please enter the country's name below: ")
 country=input()
 
+print("What type of  Covid 19 related information do you want to know.")
+print("1. Confimed Cases\n 2.Death\n 3. Vaccination")
+coronavirusInfoType=input()
+
+print("Different types of charts to presentation data . ")
+print("1.Line graph \n 2. Bar chart\n 3. Pie chart \n4.Scatter chat \n 5.Cumulative  graph ")
+chartTypes=input()
+
 
 
 
