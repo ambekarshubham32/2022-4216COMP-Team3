@@ -3,26 +3,6 @@ from ctypes.wintypes import tagRECT
 import os
 import pandas as pd
 
-def option(chooseOption):
-    if chooseOption==1:
-        currentTrends()
-    elif chooseOption==2:
-        infoCovidCountry()
-    elif chooseOption==3:
-        displayAllCovidData()
-    elif chooseOption==4:
-        CompareCountryCovid19()
-    else:
-        print("Please choose the numbers from the menu.")
-        
-        
-def currentTrends():
-    
-def infoCovidCountry():
-
-def  displayAllCovidData():
-
-def  CompareCountryCovid19():
 
 
 
