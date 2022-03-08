@@ -15,7 +15,47 @@ menuSelection(menuOption)
 
 
 def  menuSelection(menuOption):
-    if
+    if menuOption==1:
+        topFiveVaccine()
+    elif menuOption==2:
+        countryDataSelection()
+    elif menuOption==3:
+        mostDeathOrVaccine()
+    elif menuOption==4:
+        vaccineType()
+    elif menuOption==5:
+        popularVaccinePerCountry()
+    elif menuOption==6:
+        comparisonTotalDeathOrVaccineOnSpecificCountries()
+    else:
+        print("Please  enter a number from  the menu")   
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+#Harry
+def topFiveVaccine():
+    
+    
+#Lydia    
+def mostDeathOrVaccine(): 
+#Matty
+def vaccineType():
+#Vince 
+def popularVaccinePerCountry():
+#Charlie
+def comparisonTotalDeathOrVaccineOnSpecificCountries():
 
 
 
@@ -30,17 +70,7 @@ def  menuSelection(menuOption):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+#Shubham
 print("Please enter the country's name below: ")
 country=input()
 #selectCountry()
