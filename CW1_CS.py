@@ -71,6 +71,9 @@ def comparisonTotalDeathOrVaccineOnSpecificCountries():
 
 
 #Shubham
+
+def countryDataSelection():
+
 print("Please enter the country's name below: ")
 country=input()
 #selectCountry()
