@@ -143,7 +143,7 @@ def selectCountry(countryChoosen):
            #column.append(row[])
         else:
             #column.append()
-            
+               
     
     xAxis=[]
     yAxis=[]
