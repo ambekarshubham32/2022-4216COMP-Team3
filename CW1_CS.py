@@ -75,10 +75,10 @@ def  menuSelection(menuOption):
 
 
 
-def file():
-    with open('sample.txt','r') as file:
-        lineNo=file.readlines()
-    return lineNo
+
+with open('sample.txt','r') as file:
+    lineNo=file.readlines()
+
 
 
 
@@ -107,8 +107,12 @@ print("1.Line graph \n 2. Bar chart\n 3. Pie chart \n4.Scatter chart \n5.Cumulat
 chartTypes=input()
 #chart(chartTypes)
     
+
+
+        
+        
     
-def chart(chartTypes):
+def chart():
     if chartTypes==1:
         lineGraph()
     elif chartTypes==2:
@@ -119,12 +123,14 @@ def chart(chartTypes):
         scatterChart()
     elif chartTypes==5:
         cumulativeGraph()
+    else:
+        print("Invalid choice")
            
 
 
 
 def lineGraph():
-    file()
+    
     
     xAxis=[]
     yAxis=[]
