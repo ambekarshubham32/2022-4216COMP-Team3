@@ -3,8 +3,13 @@ from ctypes.wintypes import tagRECT
 import os
 import pandas as pd
 #Displays the  data from the Excel file
-##data=pd.read_csv("WHO-COVID-19-global-data.csv")
-##print(data)
+data=pd.read_csv("WHO-COVID-19-global-data.csv")
+print(data)
+#Initailisation of variables:
+menuSelection=0
+
+
+
 
 print("Menu")
 print("1.    Top 5 vaccines Harry \n 2.    Finding data by country Shubham\n3.    What time of year had the most deaths/vaccines? Lydia\n 4.    Type of vaccines used Matty\n5.    Popular vaccine per country Vince\n 6.    Comparing total deaths and vaccines of specific countries Charlie")
