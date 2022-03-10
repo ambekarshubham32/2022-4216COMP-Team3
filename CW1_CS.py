@@ -105,15 +105,17 @@ def chart(chartTypes):
     if chartTypes==1:
         lineGraph()
     elif chartTypes==2:
-         barChart()
+         barGraph()
     elif chartTypes==3:
         pieChart()
     elif chartTypes==4:
         scatterChart()
     elif chartTypes==5:
-        CumulativeChart()
+        cumulativeGraph()
            
-           
+
+
+         
            
 #def selectCountry(country):
     
