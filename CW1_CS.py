@@ -77,7 +77,7 @@ def  menuSelection(menuOption):
 
 
 with open('sample.txt','r') as file:
-    lineNo=file.readlines()
+    covidData=file.readlines()
 
 
 
@@ -130,7 +130,7 @@ def chart():
 
 
 def lineGraph():
-    
+    next()
     
     xAxis=[]
     yAxis=[]
