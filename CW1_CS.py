@@ -45,17 +45,23 @@ def  menuSelection(menuOption):
 
 
 #Harry
-def topFiveVaccine():
+#def topFiveVaccine():
     
     
 #Lydia    
-def mostDeathOrVaccine(): 
+#def mostDeathOrVaccine(): 
+
+
 #Matty
-def vaccineType():
+#def vaccineType():
+
+
 #Vince 
-def popularVaccinePerCountry():
+#def popularVaccinePerCountry():
+
+
 #Charlie
-def comparisonTotalDeathOrVaccineOnSpecificCountries():
+#def comparisonTotalDeathOrVaccineOnSpecificCountries():
 
 
 
@@ -72,29 +78,29 @@ def comparisonTotalDeathOrVaccineOnSpecificCountries():
 
 #Shubham
 
-def countryDataSelection():
+#def countryDataSelection():
 
 print("Please enter the country's name below: ")
 country=input()
-#selectCountry()
+#selectCountry(country)
 
 
 print("What type of  Covid 19 related information do you want to know.")
 print("1. Confimed Cases\n 2.Death\n 3. Vaccination")
 coronavirusInfoType=input()
-#CoronavirusParameters()
+#CoronavirusParameters(coronavirusInfoType)
 
 print("Different types of charts to presentation data . ")
 print("1.Line graph \n 2. Bar chart\n 3. Pie chart \n4.Scatter chat \n5.Cumulative  graph ")
 chartTypes=input()
-#chart()
+#chart(chartTypes)
     
     
-def chart():
+def chart(chartTypes):
 
-#def selectCountry():
+#def selectCountry(country):
     
-#def CoronavirusParameters():
+#def CoronavirusParameters(coronavirusInfoType):
 
 
 
