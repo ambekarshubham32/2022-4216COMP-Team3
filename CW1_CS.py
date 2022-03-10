@@ -133,13 +133,18 @@ def chart():
 #def lineGraph():
   
     
-def selectCountry(country): 
+def selectCountry(countryChoosen): 
     next(covidData)
     column=[]
-    for row in file:
-        if String(row[2])==country:
-        
-        column.append(data)
+
+    for columnIndex in file:
+
+        if columnIndex[2]==countryChoosen:
+           #column.append(row[])
+        else:
+            #column.append()
+            
+    
     xAxis=[]
     yAxis=[]
  
