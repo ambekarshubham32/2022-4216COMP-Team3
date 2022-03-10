@@ -1,6 +1,7 @@
 #Importing essentail libraries
 from ctypes.wintypes import tagRECT
 import os
+from tokenize import String
 import pandas as pd
 import matplotlib.pyplot as plt
 #Displays the  data from the Excel file
@@ -129,16 +130,21 @@ def chart():
 
 
 
-def lineGraph():
-    next()
+#def lineGraph():
+  
     
+def selectCountry(country): 
+    next(covidData)
+    column=[]
+    for row in file:
+        if String(row[2])==country:
+        
+        column.append(data)
     xAxis=[]
     yAxis=[]
-    
-    
+ 
          
            
-#def selectCountry(country):
     
 #def CoronavirusParameters(coronavirusInfoType):
 
