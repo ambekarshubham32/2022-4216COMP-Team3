@@ -96,13 +96,25 @@ coronavirusInfoType=input()
 #CoronavirusParameters(coronavirusInfoType)
 
 print("Different types of charts to presentation data . ")
-print("1.Line graph \n 2. Bar chart\n 3. Pie chart \n4.Scatter chat \n5.Cumulative  graph ")
+print("1.Line graph \n 2. Bar chart\n 3. Pie chart \n4.Scatter chart \n5.Cumulative  graph ")
 chartTypes=input()
 #chart(chartTypes)
     
     
 def chart(chartTypes):
-
+    if chartTypes==1:
+        lineGraph()
+    elif chartTypes==2:
+         barChart()
+    elif chartTypes==3:
+        pieChart()
+    elif chartTypes==4:
+        scatterChart()
+    elif chartTypes==5:
+        CumulativeChart()
+           
+           
+           
 #def selectCountry(country):
     
 #def CoronavirusParameters(coronavirusInfoType):
