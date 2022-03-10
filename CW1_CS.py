@@ -75,6 +75,12 @@ def  menuSelection(menuOption):
 
 
 
+def file():
+    with open('sample.txt','r') as file:
+        lineNo=file.readlines()
+    return lineNo
+
+
 
 
 
@@ -114,7 +120,6 @@ def chart(chartTypes):
     elif chartTypes==5:
         cumulativeGraph()
            
-
 
 
     
