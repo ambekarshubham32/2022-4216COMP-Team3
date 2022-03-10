@@ -2,6 +2,7 @@
 from ctypes.wintypes import tagRECT
 import os
 import pandas as pd
+import matplotlib.pyplot as plt
 #Displays the  data from the Excel file
 data=pd.read_csv("WHO-COVID-19-global-data.csv")
 print(data)
@@ -105,7 +106,7 @@ def chart(chartTypes):
     if chartTypes==1:
         lineGraph()
     elif chartTypes==2:
-         barGraph()
+        barGraph()
     elif chartTypes==3:
         pieChart()
     elif chartTypes==4:
@@ -115,6 +116,8 @@ def chart(chartTypes):
            
 
 
+
+    
          
            
 #def selectCountry(country):
