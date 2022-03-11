@@ -93,16 +93,20 @@ with open('sample.txt','r') as file:
 
 
 def chart(chartTypes,country,coronavirusInfoType):
+    if coronavirusInfoType==5: 
+ 
+    
+    
     if chartTypes==1:
-        lineGraph()
+        lineGraph(chartTypes,country,coronavirusInfoType)
     elif chartTypes==2:
-        barGraph()
+        barGraph(chartTypes,country,coronavirusInfoType)
     elif chartTypes==3:
-        pieChart()
+        pieChart(chartTypes,country,coronavirusInfoType)
     elif chartTypes==4:
-        scatterChart()
+        scatterChart(chartTypes,country,coronavirusInfoType)
     elif chartTypes==5:
-        cumulativeGraph()
+        cumulativeGraph(chartTypes,country,coronavirusInfoType)
     else:
         print("Invalid choice")
            
@@ -110,7 +114,38 @@ def chart(chartTypes,country,coronavirusInfoType):
 
 
 def cumulativeGraph(chartTypes,country,coronavirusInfoType):
+    # skip the header
+    next(covidData)
     
+    
+    #Two arrays stores the data for x and y axis
+    date=[]
+    
+    caseCumulative=[]
+    
+    # read the data from excel file    
+    for rowData in covidData:
+        
+        #saves to the arrays
+        countryData=int(rowData[2])
+        if countryData==country:
+            day+=1
+            countryCount.append(countryData)
+            if coronavirusInfoType==1:
+                case=rowData[5]
+                caseCumulative.append(case)
+            elif coronavirusInfoType==2:
+                case=rowData[7]
+                caseCumulative.append(case)
+            else:
+                print()  
+        else:
+            print()
+        
+        
+            
+            
+                    
 
                
     
