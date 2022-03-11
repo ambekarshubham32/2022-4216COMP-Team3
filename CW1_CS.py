@@ -129,8 +129,7 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
         #saves to the arrays
         countryData=int(rowData[2])
         if countryData==country:
-            day+=1
-            countryCount.append(countryData)
+            date+=str(rowData[0])
             if coronavirusInfoType==1:
                 case=rowData[5]
                 caseCumulative.append(case)
