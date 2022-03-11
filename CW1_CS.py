@@ -91,29 +91,8 @@ with open('sample.txt','r') as file:
 
 #Shubham
 
-#def countryDataSelection():
 
-print("Please enter the country's name below: ")
-country=input()
-#selectCountry(country)
-
-
-print("What type of  Covid 19 related information do you want to know.")
-print("1. Confimed Cases\n 2.Death\n 3. Vaccination")
-coronavirusInfoType=input()
-#CoronavirusParameters(coronavirusInfoType)
-
-print("Different types of charts to presentation data . ")
-print("1.Line graph \n 2. Bar chart\n 3. Pie chart \n4.Scatter chart \n5.Cumulative  graph ")
-chartTypes=input()
-#chart(chartTypes)
-    
-
-
-        
-        
-    
-def chart():
+def chart(chartTypes,country,coronavirusInfoType):
     if chartTypes==1:
         lineGraph()
     elif chartTypes==2:
@@ -130,11 +109,37 @@ def chart():
 
 
 
-#def lineGraph():
-  
+def cumulativeGraph(chartTypes,country,coronavirusInfoType):
+    
 
                
     
+
+
+
+
+#def countryDataSelection():
+
+print("Please enter the country's name below: ")
+country=input()
+#selectCountry(country)
+
+
+print("What type of  Covid 19 related information do you want to know.")
+print("1. Confimed Cases\n 2.Death\n 3. Vaccination")
+coronavirusInfoType=input()
+#CoronavirusParameters(coronavirusInfoType)
+
+print("Different types of charts to presentation data . ")
+print("1.Line graph \n 2.Bar chart\n 3.Pie chart\n 4.Scatter chart\n 5.Cumulative  graph ")
+chartTypes=int(input())
+chart(chartTypes,country,coronavirusInfoType)    
+
+
+        
+        
+    
+
  
          
            
