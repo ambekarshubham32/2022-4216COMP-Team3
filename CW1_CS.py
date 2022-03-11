@@ -96,20 +96,20 @@ def chart(chartTypes,country,coronavirusInfoType):
     if coronavirusInfoType==5: 
  
     
-    
-    if chartTypes==1:
-        lineGraph(chartTypes,country,coronavirusInfoType)
-    elif chartTypes==2:
-        barGraph(chartTypes,country,coronavirusInfoType)
-    elif chartTypes==3:
-        pieChart(chartTypes,country,coronavirusInfoType)
-    elif chartTypes==4:
-        scatterChart(chartTypes,country,coronavirusInfoType)
-    elif chartTypes==5:
-        cumulativeGraph(chartTypes,country,coronavirusInfoType)
-    else:
-        print("Invalid choice")
-           
+        
+        if chartTypes==1:
+            lineGraph(chartTypes,country,coronavirusInfoType)
+        elif chartTypes==2:
+            barGraph(chartTypes,country,coronavirusInfoType)
+        elif chartTypes==3:
+            pieChart(chartTypes,country,coronavirusInfoType)
+        elif chartTypes==4:
+            scatterChart(chartTypes,country,coronavirusInfoType)
+        elif chartTypes==5:
+            cumulativeGraph(chartTypes,country,coronavirusInfoType)
+        else:
+            print("Invalid choice")
+            
 
 
 
@@ -120,16 +120,15 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
     
     #Two arrays stores the data for x and y axis
     date=[]
-    
     caseCumulative=[]
     
-    # read the data from excel file    
+    # read the data from excel file   
     for rowData in covidData:
         
         #saves to the arrays
         countryData=int(rowData[2])
         if countryData==country:
-            date+=str(rowData[0])
+            date.append(str(rowData[0]))
             if coronavirusInfoType==1:
                 case=rowData[5]
                 caseCumulative.append(case)
@@ -140,10 +139,23 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
                 print()  
         else:
             print()
+    
+        #creates a graph and plots it
+        fg,ax=plt.subplots()
+        ax.polt(date,caseCumulative,'mD:')
         
+        maxNoCaseCumulative=max(caseCumulative)
+        minNoCaseCumulative=min(caseCumulative)
+                    
+        #Creates the axis for the graph   
+        ax.xaxis.grid(date)
+        ax.yaxis.grid()
         
-            
-            
+        ax.set_yticks(range(10,maxNoCaseCumulative,minNoCaseCumulative))
+        
+        ax.set_ybound(minNoCaseCumulative, maxNoCaseCumulative)
+        ax.set_xbound(date)
+    plt.show()        
                     
 
                
