@@ -102,15 +102,14 @@ def chart(chartTypes,country,coronavirusInfoType):
         elif chartTypes==2:
             barGraph(chartTypes,country,coronavirusInfoType)
         elif chartTypes==3:
-        elif chartTypes==4:
             scatterChart(chartTypes,country,coronavirusInfoType)
-        elif chartTypes==5:
+        elif chartTypes==4:
             cumulativeGraph(chartTypes,country,coronavirusInfoType)
         else:
             print("Invalid choice")
             
 
-def 
+
 
 
 
