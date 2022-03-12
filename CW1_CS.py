@@ -102,7 +102,6 @@ def chart(chartTypes,country,coronavirusInfoType):
         elif chartTypes==2:
             barGraph(chartTypes,country,coronavirusInfoType)
         elif chartTypes==3:
-            pieChart(chartTypes,country,coronavirusInfoType)
         elif chartTypes==4:
             scatterChart(chartTypes,country,coronavirusInfoType)
         elif chartTypes==5:
@@ -110,6 +109,8 @@ def chart(chartTypes,country,coronavirusInfoType):
         else:
             print("Invalid choice")
             
+
+def 
 
 
 
@@ -172,7 +173,7 @@ def countryDataSelection():
     print("Please enter the country's name below: ")
     country=input()
     print("What type of  Covid 19 related information do you want to know.")
-    print("1. Confimed Cases\n 2.Death\n")
+    print("1. Confimed Cases\n 2.Death")
     coronavirusInfoType=input()
   
     if coronavirusInfoType==1:
