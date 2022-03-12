@@ -172,7 +172,7 @@ def countryDataSelection():
     print("Please enter the country's name below: ")
     country=input()
     print("What type of  Covid 19 related information do you want to know.")
-    print("1. Confimed Cases\n 2.Death\n 3. Vaccination")
+    print("1. Confimed Cases\n 2.Death\n")
     coronavirusInfoType=input()
   
     if coronavirusInfoType==1:
