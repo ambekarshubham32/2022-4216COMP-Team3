@@ -5,7 +5,7 @@ from tokenize import String
 import pandas as pd
 import matplotlib.pyplot as plt
 #Displays the  data from the Excel file
-data=pd.read_csv("WHO-COVID-19-global-data.csv")
+data=pd.read_csv("C:\Users\Shubham Ambekar\OneDrive - Liverpool John Moores University\Desktop\GitHub\CW1- Computer Science Workshop")
 print(data)
 #Initailisation of variables:
 menuSelection=0
@@ -155,6 +155,8 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
         
         ax.set_ybound(minNoCaseCumulative, maxNoCaseCumulative)
         ax.set_xbound(date)
+    
+    
     plt.show()        
                     
 
@@ -164,24 +166,29 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
 
 
 
-#def countryDataSelection():
-
-print("Please enter the country's name below: ")
-country=input()
-#selectCountry(country)
-
-
-print("What type of  Covid 19 related information do you want to know.")
-print("1. Confimed Cases\n 2.Death\n 3. Vaccination")
-coronavirusInfoType=input()
-#CoronavirusParameters(coronavirusInfoType)
-
-print("Different types of charts to presentation data . ")
-print("1.Line graph \n 2.Bar chart\n 3.Pie chart\n 4.Scatter chart\n 5.Cumulative  graph ")
-chartTypes=int(input())
-chart(chartTypes,country,coronavirusInfoType)    
-
-
+def countryDataSelection():
+    
+    #User inputs
+    print("Please enter the country's name below: ")
+    country=input()
+    print("What type of  Covid 19 related information do you want to know.")
+    print("1. Confimed Cases\n 2.Death\n 3. Vaccination")
+    coronavirusInfoType=input()
+  
+    if coronavirusInfoType==1:
+        
+        print("Different types of charts to presentation data . ")
+        print("1.Line graph \n 2.Bar chart\n 3.Scatter chart\n 4.Cumulative  graph ")
+        chartTypes=int(input())
+        chart(chartTypes,country,coronavirusInfoType)    
+    elif coronavirusInfoType==2:    
+        print("Different types of charts to presentation data . ")
+        print("1.Line graph \n 2.Bar chart\n 3.Scatter chart\n 4.Cumulative  graph ")
+        chartTypes=int(input())
+        chart(chartTypes,country,coronavirusInfoType)    
+        
+    else:
+        print()
         
         
     
