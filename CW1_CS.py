@@ -197,7 +197,6 @@ def countryDataSelection():
          
            
     
-#def CoronavirusParameters(coronavirusInfoType):
 
 
 
