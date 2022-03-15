@@ -5,7 +5,7 @@ from tokenize import String
 import pandas as pd
 import matplotlib.pyplot as plt
 #Displays the  data from the Excel file
-data=pd.read_csv("C:\Users\Shubham Ambekar\OneDrive - Liverpool John Moores University\Desktop\GitHub\CW1- Computer Science Workshop")
+data=pd.read_csv("C:\Users\Shubham Ambekar\OneDrive - Liverpool John Moores University\Desktop\GitHub\CW1- Computer Science Workshop\2022-4216COMP-Team3\2022-4216COMP-Team3-1\WHO-COVID-19-global-data.csv")
 print(data)
 #Initailisation of variables:
 menuSelection=0
@@ -108,7 +108,48 @@ def chart(chartTypes,country,coronavirusInfoType):
         else:
             print("Invalid choice")
             
-
+def lineGraph(chartTypes,country,coronavirusInfoType):
+    # skip the header
+    next(covidData)
+    
+    #Two arrays stores the data for x and y axis
+    date=[]
+    caseCumulative=[]
+    
+    # read the data from excel file   
+    for rowData in covidData:
+        
+        #saves to the arrays
+        countryData=int(rowData[2])
+        if countryData==country:
+            date.append(str(rowData[0]))
+            if coronavirusInfoType==1:
+                case=rowData[5]
+                caseCumulative.append(case)
+            elif coronavirusInfoType==2:
+                case=rowData[7]
+                caseCumulative.append(case)
+            else:
+                print()  
+        else:
+            print()
+    
+        #creates a graph and plots it
+        fg,ax=plt.subplots()
+        ax.polt(date,caseCumulative,'mD:')
+        
+        maxNoCaseCumulative=max(cases)
+        minNoCaseCumulative=min(cases)
+                    
+        #Creates the axis for the graph   
+        ax.xaxis.grid(date)
+        ax.yaxis.grid()
+        
+        ax.set_yticks(range(10,maxNoCaseCumulative,minNoCaseCumulative))
+        
+        ax.set_ybound(minNoCaseCumulative, maxNoCaseCumulative)
+        ax.set_xbound(date)
+    
 
 
 
@@ -172,7 +213,7 @@ def countryDataSelection():
     print("Please enter the country's name below: ")
     country=input()
     print("What type of  Covid 19 related information do you want to know.")
-    print("1. Confimed Cases\n 2.Death")
+    print("1. Confimed Cases\n 2.Death 3.Vaccination")
     coronavirusInfoType=input()
   
     if coronavirusInfoType==1:
