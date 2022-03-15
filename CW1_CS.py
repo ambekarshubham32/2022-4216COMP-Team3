@@ -5,8 +5,8 @@ from tokenize import String
 import pandas as pd
 import matplotlib.pyplot as plt
 #Displays the  data from the Excel file
-data=pd.read_csv("C:\Users\Shubham Ambekar\OneDrive - Liverpool John Moores University\Desktop\GitHub\CW1- Computer Science Workshop\2022-4216COMP-Team3\2022-4216COMP-Team3-1\WHO-COVID-19-global-data.csv")
-print(data)
+casesAndDeathData=pd.read_csv("WHO-COVID-19-global-data.csv")
+vaccineData=pd.read_csv("vaccination-data.csv")
 #Initailisation of variables:
 menuSelection=0
 
