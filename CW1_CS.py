@@ -4,7 +4,7 @@ import os
 from tokenize import String
 import pandas as pd
 import matplotlib.pyplot as plt
-#Displays the  data from the Excel file
+#Displays the  data from the Excel files
 casesAndDeathData=pd.read_csv("WHO-COVID-19-global-data.csv")
 vaccineData=pd.read_csv("vaccination-data.csv")
 #Initailisation of variables:
