@@ -82,8 +82,7 @@ def  menuSelection(menuOption):
 
 
 
-with open('sample.txt','r') as file:
-    covidData=file.readlines()
+
 
 
 
@@ -118,8 +117,8 @@ def lineGraph(chartTypes,country,coronavirusInfoType):
     next(covidData)
     
     #Two arrays stores the data for x and y axis
-    date=[]
-    caseCumulative=[]
+    =[]
+    =[]
     
     # read the data from excel file   
     for rowData in covidData:
