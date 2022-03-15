@@ -19,7 +19,7 @@ menuSelection=0
 
 
 print("Menu")
-print("1.    Top 5 vaccines Harry \n 2.    Finding data by country Shubham\n3.    What time of year had the most deaths/vaccines? Lydia\n 4.    Type of vaccines used Matty\n5.    Popular vaccine per country Vince\n 6.    Comparing total deaths and vaccines of specific countries Charlie")
+print("1.Top 5 vaccines Harry \n2.Finding data by country Shubham\n3.What time of year had the most deaths/vaccines? Lydia\n4.Type of vaccines used Matty\n5.opular vaccine per country Vince\n6.omparing total deaths and vaccines of specific countries Charlie")
 
 menuOption=int(input("Please enter the number   here:"))
 menuSelection(menuOption)
