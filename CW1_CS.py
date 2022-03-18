@@ -109,14 +109,15 @@ def chart(chartTypes,country,coronavirusInfoType):
             
 def lineGraph(chartTypes,country,coronavirusInfoType):
     # skip the header
-    next(covidData)
+    next(casesAndDeathData)
     
     #Two arrays stores the data for x and y axis
-    =[]
-    =[]
+    date=[]
+    numberofDeathOrCase=[]
+    
     
     # read the data from excel file   
-    for rowData in covidData:
+    for rowData in casesAndDeathData:
         
         #saves to the arrays
         countryData=int(rowData[2])
@@ -124,10 +125,10 @@ def lineGraph(chartTypes,country,coronavirusInfoType):
             date.append(str(rowData[0]))
             if coronavirusInfoType==1:
                 case=rowData[5]
-                caseCumulative.append(case)
+                numberofDeathOrCase.append(case)
             elif coronavirusInfoType==2:
                 case=rowData[7]
-                caseCumulative.append(case)
+                numberofDeathOrCase.append(case)
             else:
                 print()  
         else:
@@ -135,18 +136,18 @@ def lineGraph(chartTypes,country,coronavirusInfoType):
     
         #creates a graph and plots it
         fg,ax=plt.subplots()
-        ax.polt(date,caseCumulative,'mD:')
+        ax.polt(date,casesAndDeathData,'mD:')
         
-        maxNoCaseCumulative=max(cases)
-        minNoCaseCumulative=min(cases)
+        maxNoCaseOrDeath=max(numberofDeathOrCase)
+        minNoCaseOrDeath=min(numberofDeathOrCase)
                     
         #Creates the axis for the graph   
         ax.xaxis.grid(date)
         ax.yaxis.grid()
         
-        ax.set_yticks(range(10,maxNoCaseCumulative,minNoCaseCumulative))
+        ax.set_yticks(range(10,maxNoCaseOrDeath,minNoCaseOrDeath))
         
-        ax.set_ybound(minNoCaseCumulative, maxNoCaseCumulative)
+        ax.set_ybound(minNoCaseOrDeath, maxNoCaseOrDeath)
         ax.set_xbound(date)
     
 
@@ -155,7 +156,7 @@ def lineGraph(chartTypes,country,coronavirusInfoType):
 
 def cumulativeGraph(chartTypes,country,coronavirusInfoType):
     # skip the header
-    next(covidData)
+    next(casesAndDeathData)
     
     
     #Two arrays stores the data for x and y axis
@@ -163,7 +164,7 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
     caseCumulative=[]
     
     # read the data from excel file   
-    for rowData in covidData:
+    for rowData in casesAndDeathData:
         
         #saves to the arrays
         countryData=int(rowData[2])
