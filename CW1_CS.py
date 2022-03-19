@@ -91,21 +91,46 @@ def  menuSelection(menuOption):
 #Shubham
 
 
-def chart(chartTypes,country,coronavirusInfoType):
-    if coronavirusInfoType==5: 
- 
-    
+
+
         
-        if chartTypes==1:
-            lineGraph(chartTypes,country,coronavirusInfoType)
-        elif chartTypes==2:
-            barGraph(chartTypes,country,coronavirusInfoType)
-        elif chartTypes==3:
-            scatterChart(chartTypes,country,coronavirusInfoType)
-        elif chartTypes==4:
-            cumulativeGraph(chartTypes,country,coronavirusInfoType)
+        
+def barGraph(chartTypes,country,coronavirusInfoType):
+    #skip the header
+    next(casesAndDeathData)
+    
+   #Two arrays stores the data for x and y axis
+    date=[]
+    numberofDeathOrCase=[]
+    
+    
+    # read the data from excel file   
+    for rowData in casesAndDeathData:
+        
+        #saves to the arrays
+        countryData=int(rowData[2])
+        if countryData==country:
+            date.append(str(rowData[0]))
+            if coronavirusInfoType==1:
+                case=rowData[5]
+                numberofDeathOrCase.append(case)
+                plt.title('Cases')
+                
+            elif coronavirusInfoType==2:
+                case=rowData[7]
+                numberofDeathOrCase.append(case)
+                plt.title('Death')
+            else:
+                print()  
         else:
-            print("Invalid choice")
+            print()
+    plt.xticks(range(len(date)),numberofDeathOrCase)
+    plt.xlabel('Date')
+    plt.ylabel('Amounts')
+    plt.bar(range(len(date)), date)
+    plt.show()
+      
+
             
 def lineGraph(chartTypes,country,coronavirusInfoType):
     # skip the header
@@ -168,6 +193,7 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
         
         #saves to the arrays
         countryData=int(rowData[2])
+        
         if countryData==country:
             date.append(str(rowData[0]))
             if coronavirusInfoType==1:
@@ -208,7 +234,6 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
 
 
 def countryDataSelection():
-    
     #User inputs
     print("Please enter the country's name below: ")
     country=input()
@@ -217,7 +242,6 @@ def countryDataSelection():
     coronavirusInfoType=input()
   
     if coronavirusInfoType==1:
-        
         print("Different types of charts to presentation data . ")
         print("1.Line graph \n 2.Bar chart\n 3.Scatter chart\n 4.Cumulative  graph ")
         chartTypes=int(input())
@@ -231,7 +255,22 @@ def countryDataSelection():
     else:
         print()
         
+  
+def chart(chartTypes,country,coronavirusInfoType):
+    if coronavirusInfoType==5: 
+ 
+    
         
+        if chartTypes==1:
+            lineGraph(chartTypes,country,coronavirusInfoType)
+        elif chartTypes==2:
+            barGraph(chartTypes,country,coronavirusInfoType)
+        elif chartTypes==3:
+            scatterChart(chartTypes,country,coronavirusInfoType)
+        elif chartTypes==4:
+            cumulativeGraph(chartTypes,country,coronavirusInfoType)
+        else:
+            print("Invalid choice")      
     
 
  
