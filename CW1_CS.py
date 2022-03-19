@@ -97,7 +97,39 @@ def  menuSelection(menuOption):
         
 def barGraph(chartTypes,country,coronavirusInfoType):
     #skip the header
-  
+    next(casesAndDeathData)
+    
+   #Two arrays stores the data for x and y axis
+    date=[]
+    numberofDeathOrCase=[]
+    
+    
+    # read the data from excel file   
+    for rowData in casesAndDeathData:
+        
+        #saves to the arrays
+        countryData=int(rowData[2])
+        if countryData==country:
+            date.append(str(rowData[0]))
+            if coronavirusInfoType==1:
+                case=rowData[5]
+                numberofDeathOrCase.append(case)
+                plt.title('Cases')
+                
+            elif coronavirusInfoType==2:
+                case=rowData[7]
+                numberofDeathOrCase.append(case)
+                plt.title('Death')
+            else:
+                print()  
+        else:
+            print()
+    plt.xticks(range(len(date)),numberofDeathOrCase)
+    plt.xlabel('Date')
+    plt.ylabel('Amounts')
+    plt.bar(range(len(date)), date)
+    plt.show()
+      
 
             
 def lineGraph(chartTypes,country,coronavirusInfoType):
