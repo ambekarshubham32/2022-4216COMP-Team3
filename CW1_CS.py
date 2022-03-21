@@ -21,21 +21,7 @@ menuSelection(menuOption)
 
 
 
-def  menuSelection(menuOption):
-    if menuOption==1:
-        topFiveVaccine()
-    elif menuOption==2:
-        countryDataSelection()
-    elif menuOption==3:
-        mostDeathOrVaccine()
-    elif menuOption==4:
-        vaccineType()
-    elif menuOption==5:
-        popularVaccinePerCountry()
-    elif menuOption==6:
-        comparisonTotalDeathOrVaccineOnSpecificCountries()
-    else:
-        print("Please  enter a number from  the menu")   
+ 
         
         
         
