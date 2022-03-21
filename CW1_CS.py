@@ -92,10 +92,7 @@ def  menuSelection(menuOption):
 
 
 
-
-        
-        
-def barGraph(chartTypes,country,coronavirusInfoType):
+def scatterGraph(chartTypes,country,coronavirusInfoType):
     #skip the header
     next(casesAndDeathData)
     
@@ -105,30 +102,37 @@ def barGraph(chartTypes,country,coronavirusInfoType):
     
     
     # read the data from excel file   
-    for rowData in casesAndDeathData:
+#     for rowData in casesAndDeathData:
         
-        #saves to the arrays
-        countryData=int(rowData[2])
-        if countryData==country:
-            date.append(str(rowData[0]))
-            if coronavirusInfoType==1:
-                case=rowData[5]
-                numberofDeathOrCase.append(case)
-                plt.title('Cases')
+#         #saves to the arrays
+#         countryData=int(rowData[2])
+#         if countryData==country:
+#             date.append(str(rowData[0]))
+#             if coronavirusInfoType==1:
+#                 case=rowData[5]
+#                 numberofDeathOrCase.append(case)
+#                 plt.title('Cases')
                 
-            elif coronavirusInfoType==2:
-                case=rowData[7]
-                numberofDeathOrCase.append(case)
-                plt.title('Death')
-            else:
-                print()  
-        else:
-            print()
-    plt.xticks(range(len(date)),numberofDeathOrCase)
-    plt.xlabel('Date')
-    plt.ylabel('Amounts')
-    plt.bar(range(len(date)), date)
-    plt.show()
+#             elif coronavirusInfoType==2:
+#                 case=rowData[7]
+#                 numberofDeathOrCase.append(case)
+#                 plt.title('Death')
+#             else:
+#                 print()  
+#         else:
+#             print()
+#    fig=plt.figure([2,0,4,4])
+#    ax.scatter(numberofDeathOrCase,color='b')
+    
+#     plt.xticks(range(len(date)),numberofDeathOrCase)
+#     plt.xlabel('Date')
+#     plt.ylabel('Amounts')
+    
+   
+#     plt.show()
+        
+        
+
       
 
             
