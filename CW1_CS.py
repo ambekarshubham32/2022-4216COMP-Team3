@@ -7,8 +7,7 @@ import matplotlib.pyplot as plt
 #Displays the  data from the Excel files
 casesAndDeathData=pd.read_csv("WHO-COVID-19-global-data.csv")
 vaccineData=pd.read_csv("vaccination-data.csv")
-#Initailisation of variables:
-menuSelection=0
+
 
 
 
@@ -20,7 +19,21 @@ menuOption=int(input("Please enter the number   here:"))
 menuSelection(menuOption)
 
 
-
+def  menuSelection(menuOption):
+    if menuOption==1:
+        topFiveVaccine()
+    elif menuOption==2:
+        countryDataSelection()
+    elif menuOption==3:
+        mostDeathOrVaccine()
+    elif menuOption==4:
+        vaccineType()
+    elif menuOption==5:
+        popularVaccinePerCountry()
+    elif menuOption==6:
+        comparisonTotalDeathOrVaccineOnSpecificCountries()
+    else:
+        print("Please  enter a number from  the menu")   
  
         
         
