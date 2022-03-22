@@ -237,7 +237,7 @@ def countryDataSelection():
     print("Please enter the country's name below: ")
     country=input()
     print("What type of  Covid 19 related information do you want to know.")
-    print("1. Confimed Cases\n 2.Death 3.Vaccination")
+    print("1. Confimed Cases\n 2.Death\n 3.Vaccination")
     coronavirusInfoType=input()
   
     if coronavirusInfoType==1:
@@ -272,9 +272,9 @@ def chart(chartTypes,country,coronavirusInfoType):
             print("Invalid choice")      
     
 print("Menu")
-print("1.Top 5 vaccines Harry \n2.Finding data by country Shubham\n3.What time of year had the most deaths/vaccines? Lydia\n4.Type of vaccines used Matty\n5.opular vaccine per country Vince\n6.omparing total deaths and vaccines of specific countries Charlie")
+print("1.Top 5 vaccines Harry\n2.Finding data by country Shubham\n3.What time of year had the most deaths/vaccines? Lydia\n4.Type of vaccines used Matty\n5.opular vaccine per country Vince\n6.Comparing total deaths and vaccines of specific countries Charlie")
 
-menuOption=int(input("Please enter the number   here:"))
+menuOption=int(input("Please enter the number  here:"))
 menuSelection(menuOption)
  
          
