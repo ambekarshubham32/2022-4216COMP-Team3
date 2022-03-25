@@ -4,9 +4,12 @@ import os
 from tokenize import String
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
+import csv
 #Displays the  data from the Excel files
 casesAndDeathData=pd.read_csv("WHO-COVID-19-global-data.csv")
 vaccineData=pd.read_csv("vaccination-data.csv")
+
 
 
 
@@ -93,7 +96,7 @@ def scatterGraph(chartTypes,country,coronavirusInfoType):
     
    #Two arrays stores the data for x and y axis
     date=[]
-    numberofDeathOrCase=[]
+    numberOfDeathOrCase=[]
     
     
     # read the data from excel file   
@@ -132,49 +135,39 @@ def scatterGraph(chartTypes,country,coronavirusInfoType):
 
             
 def lineGraph(chartTypes,country,coronavirusInfoType):
-    # skip the header
-    next(casesAndDeathData)
     
-    #Two arrays stores the data for x and y axis
-    date=[]
-    numberofDeathOrCase=[]
+    with open('WHO-COVID-19-global-data.csv','r')as f:
+        csv_reader=csv.reader(f)
+        next(casesAndDeathData)
+    
+        #Two arrays stores the data for x and y axis
+        date=[]
+        numberOfDeathOrCase=[]
     
     
-    # read the data from excel file   
-    for rowData in casesAndDeathData:
-        
-        #saves to the arrays
-        countryData=int(rowData[2])
-        if countryData==country:
-            date.append(str(rowData[0]))
-            if coronavirusInfoType==1:
-                case=rowData[5]
-                numberofDeathOrCase.append(case)
-            elif coronavirusInfoType==2:
-                case=rowData[7]
-                numberofDeathOrCase.append(case)
+        # read the data from excel file   
+        for rowData in casesAndDeathData:
+            
+            #saves to the arrays
+            countryData=rowData[2]
+            if countryData==country:
+                date.append(str(rowData[0]))
+                if coronavirusInfoType==1:
+                    case=rowData[5]
+                    numberOfDeathOrCase.append(case)
+                elif coronavirusInfoType==2:
+                    case=rowData[7]
+                    numberOfDeathOrCase.append(case)
+                else:
+                    print()  
             else:
-                print()  
-        else:
-            print()
-    
+                print()
         #creates a graph and plots it
-        fg,ax=plt.subplots()
-        ax.polt(date,casesAndDeathData,'mD:')
-        
-        maxNoCaseOrDeath=max(numberofDeathOrCase)
-        minNoCaseOrDeath=min(numberofDeathOrCase)
-                    
-        #Creates the axis for the graph   
-        ax.xaxis.grid(date)
-        ax.yaxis.grid()
-        
-        ax.set_yticks(range(10,maxNoCaseOrDeath,minNoCaseOrDeath))
-        
-        ax.set_ybound(minNoCaseOrDeath, maxNoCaseOrDeath)
-        ax.set_xbound(date)
-    
+        plt.plot(date,numberOfDeathOrCase, label=" "+coronavirusInfoType) 
+        plt.legend()
+        plt.show()
 
+       
 
 
 
@@ -226,7 +219,8 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
     plt.show()        
                     
 
-               
+              
+ 
     
 
 
@@ -237,17 +231,17 @@ def countryDataSelection():
     print("Please enter the country's name below: ")
     country=input()
     print("What type of  Covid 19 related information do you want to know.")
-    print("1. Confimed Cases\n 2.Death\n 3.Vaccination")
-    coronavirusInfoType=input()
+    print("1.Confimed Cases\n2.Death")
+    coronavirusInfoType=int(input())
   
     if coronavirusInfoType==1:
         print("Different types of charts to presentation data . ")
-        print("1.Line graph \n 2.Bar chart\n 3.Scatter chart\n 4.Cumulative  graph ")
+        print("1.Line graph\n2.Bar chart\n3.Scatter hart\n4.Cumulative  graph ")
         chartTypes=int(input())
         chart(chartTypes,country,coronavirusInfoType)    
     elif coronavirusInfoType==2:    
         print("Different types of charts to presentation data . ")
-        print("1.Line graph \n 2.Bar chart\n 3.Scatter chart\n 4.Cumulative  graph ")
+        print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph ")
         chartTypes=int(input())
         chart(chartTypes,country,coronavirusInfoType)    
         
@@ -256,25 +250,28 @@ def countryDataSelection():
         
   
 def chart(chartTypes,country,coronavirusInfoType):
-    if coronavirusInfoType==5: 
+ 
  
     
         
-        if chartTypes==1:
-            lineGraph(chartTypes,country,coronavirusInfoType)
-        elif chartTypes==2:
-            barGraph(chartTypes,country,coronavirusInfoType)
-        elif chartTypes==3:
-            scatterChart(chartTypes,country,coronavirusInfoType)
-        elif chartTypes==4:
-            cumulativeGraph(chartTypes,country,coronavirusInfoType)
-        else:
-            print("Invalid choice")      
-    
-print("Menu")
-print("1.Top 5 vaccines Harry\n2.Finding data by country Shubham\n3.What time of year had the most deaths/vaccines? Lydia\n4.Type of vaccines used Matty\n5.opular vaccine per country Vince\n6.Comparing total deaths and vaccines of specific countries Charlie")
+    if chartTypes==1:
+        lineGraph(chartTypes,country,coronavirusInfoType)
+    elif chartTypes==2:
+        barGraph(chartTypes,country,coronavirusInfoType)
+    elif chartTypes==3:
+        scatterChart(chartTypes,country,coronavirusInfoType)
+    elif chartTypes==4:
+        cumulativeGraph(chartTypes,country,coronavirusInfoType)
+    else:
+        print("Invalid choice")      
 
-menuOption=int(input("Please enter the number  here:"))
+
+#menu    
+print("Menu")
+print("1.Top 5 vaccines Harry\n2.Finding data by country Shubham\n3.What time of year had the most deaths/vaccines? Lydia\n4.Type of vaccines used Matty\n5.Popular vaccine per country Vince\n6.Comparing total deaths and vaccines of specific countries Charlie")
+
+print("Please enter the number  here:")
+menuOption=int(input())
 menuSelection(menuOption)
  
          
