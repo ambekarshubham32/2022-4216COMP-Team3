@@ -142,12 +142,9 @@ def scatterGraph(chartTypes,country,coronavirusInfoType):
       
 
             
-def lineGraph(chartTypes,country,coronavirusInfoType):
+#def lineGraph(chartTypes,country,coronavirusInfoType):
     #calls ths function
-    axis(country)
-    if coronavirusInfoType=1:
-        xpoints=cumulative
-        ypoints=
+    
     
     
    
@@ -224,7 +221,6 @@ def countryDataSelection():
     #User inputs
     print("Please enter the country's name below: ")
     country=input()
-    axis(country)
     print("What type of  Covid 19 related information do you want to know.")
     print("1.Confimed Cases\n2.Death")
     coronavirusInfoType=int(input())
