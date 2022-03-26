@@ -87,31 +87,9 @@ def  menuSelection(menuOption):
 
 
 #Shubham
-def axis(country):
-    date=[]
-    numberOfDeaths=[]
-    numberOfCases=[]
-    cumulativeCases=[]
-    cumulativeDeath=[]
-    
-    
-    # read the data from excel file   
-    for rowData in casesAndDeathData:        
-        #saves to the arrays
-        countryData=rowData[2]
-        if countryData==country:
-            date.append(str(rowData[0]))
-            case=rowData[4]
-            numberOfCases.append(case)
-            
-            case=rowData[6]
-            numberOfDeaths.append(case)
-            deaths=rowData[5]
-            cumulativeCases.append(deaths)
-        
-        else:
-            print()
-            
+
+
+     
                 
         
   
@@ -165,37 +143,23 @@ def scatterGraph(chartTypes,country,coronavirusInfoType):
 
             
 def lineGraph(chartTypes,country,coronavirusInfoType):
-    
-    with open('WHO-COVID-19-global-data.csv','r')as f:
-        csv_reader=csv.reader(f)
-        next(casesAndDeathData)
-    
-        #Two arrays stores the data for x and y axis
-        date=[]
-        numberOfDeathOrCase=[]
+    #calls ths function
+    axis(country)
+    if coronavirusInfoType=1:
+        xpoints=cumulative
+        ypoints=
     
     
-        # read the data from excel file   
-        for rowData in casesAndDeathData:
-            
-            #saves to the arrays
-            countryData=rowData[2]
-            if countryData==country:
-                date.append(str(rowData[0]))
-                if coronavirusInfoType==1:
-                    case=rowData[5]
-                    numberOfDeathOrCase.append(case)
-                elif coronavirusInfoType==2:
-                    case=rowData[7]
-                    numberOfDeathOrCase.append(case)
-                else:
-                    print()  
-            else:
-                print()
+   
+    
+        
+    
+    
+       
         #creates a graph and plots it
-        plt.plot(date,numberOfDeathOrCase, label=" "+coronavirusInfoType) 
-        plt.legend()
-        plt.show()
+    #    plt.plot(date,numberOfDeathOrCase, label=" "+coronavirusInfoType) 
+    #    plt.legend()
+    #    plt.show()
 
        
 
