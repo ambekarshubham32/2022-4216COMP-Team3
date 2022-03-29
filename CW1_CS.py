@@ -1,7 +1,4 @@
 #Importing essentail libraries
-from ctypes.wintypes import tagRECT
-import os
-from tokenize import String
 import pandas as pd
 import matplotlib.pyplot as plt
 #Displays the  data from the Excel files
@@ -68,7 +65,38 @@ def  menuSelection(menuOption):
 
 
 #Charlie
-#def comparisonTotalDeathOrVaccineOnSpecificCountries():
+#def totalCasesPerSelectedCountry():
+
+
+print ("What Country would you like data for?")
+country = input()
+#Asking user for country to base data around
+
+countryData = casesAndDeathData[casesAndDeathData.Country == country]
+print(countryData)
+#Finding and printing data for users choice
+
+fig, ax = plt.subplots(figsize=(24, 12))
+fig.suptitle(country + " total cases and deaths", fontsize=18)
+ax.set_title("From 03/01/2020 to 23/12/21", fontsize=18)
+#Setting the size of the graph and titling it
+
+plt.plot(countryData.why[0::60], countryData.Cumulative_cases[0::60], 'g*--')
+plt.plot(countryData.why[0::60], countryData.Cumulative_deaths[0::60], 'rD--')
+plt.legend(['Cases', 'Deaths'])
+plt.xlabel('Date', fontsize=18)
+plt.ylabel('Cases/Deaths', fontsize=18)
+#Plotting the graph and its axis
+
+ax.set_facecolor('xkcd:light cyan')
+fig.patch.set_facecolor('xkcd:silver')
+#Changing colour of the graph and the background
+
+plt.grid(color='black', linestyle='-.', linewidth=0.7)
+#Adding a grid to the graph
+
+plt.show()
+#Displaying the graph
 
 
 
@@ -84,9 +112,32 @@ def  menuSelection(menuOption):
 
 
 
-
-
-
+#Shubham
+def axis(country):
+    date=[]
+    numberOfDeaths=[]
+    numberOfCases=[]
+    cumulativeCases=[]
+    cumulativeDeath=[]
+    
+    
+    # read the data from excel file   
+    for rowData in casesAndDeathData:        
+        #saves to the arrays
+        countryData=rowData[2]
+        if countryData==country:
+            date.append(str(rowData[0]))
+            case=rowData[4]
+            numberOfCases.append(case)
+            
+            case=rowData[6]
+            numberOfDeaths.append(case)
+            deaths=rowData[5]
+            cumulativeCases.append(deaths)
+        
+        else:
+            print()
+            
 
 #Shubham
 ef axis(country):
@@ -295,6 +346,18 @@ def chart(chartTypes,country,coronavirusInfoType):
             cumulativeGraph(chartTypes,country,coronavirusInfoType)
         else:
             print("Invalid choice")      
+    
+
+ 
+         
+           
+    
+
+
+
+
+
+
     
 
  
