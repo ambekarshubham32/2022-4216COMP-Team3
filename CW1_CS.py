@@ -112,6 +112,32 @@ plt.show()
 
 
 
+#Shubham
+def axis(country):
+    date=[]
+    numberOfDeaths=[]
+    numberOfCases=[]
+    cumulativeCases=[]
+    cumulativeDeath=[]
+    
+    
+    # read the data from excel file   
+    for rowData in casesAndDeathData:        
+        #saves to the arrays
+        countryData=rowData[2]
+        if countryData==country:
+            date.append(str(rowData[0]))
+            case=rowData[4]
+            numberOfCases.append(case)
+            
+            case=rowData[6]
+            numberOfDeaths.append(case)
+            deaths=rowData[5]
+            cumulativeCases.append(deaths)
+        
+        else:
+            print()
+            
 
 #Shubham
 ef axis(country):
