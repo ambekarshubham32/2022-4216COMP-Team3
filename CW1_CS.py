@@ -15,14 +15,6 @@ from sympy import true
 casesAndDeathData=pd.read_csv("WHO-COVID-19-global-data.csv")
 vaccineData=pd.read_csv("vaccination-data.csv")
 
-
-
-
-
-
-
-
-
     
 #Harry
 #def topFiveVaccine(): 
@@ -34,24 +26,6 @@ vaccineData=pd.read_csv("vaccination-data.csv")
 #def popularVaccinePerCountry():
 #Charlie
 #def comparisonTotalDeathOrVaccineOnSpecificCountries():
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #Shubham
 
@@ -80,7 +54,7 @@ def barGraph(chartTypes,country,coronavirusInfoType):
                 elif coronavirusInfoType==2:
                     death=int(rowData[6])
                     caseOrDeath.append(death)
-                    yAxis="Death"
+                    yAxis="Deaths"
 
                
         #Test Code below(check if data is added in the array)
@@ -123,7 +97,7 @@ def scatterChart(chartTypes,country,coronavirusInfoType):
                 elif coronavirusInfoType==2:
                     death=int(rowData[6])
                     caseOrDeath.append(death)
-                    yAxis="Death"
+                    yAxis="Deaths"
 
               
         #Test Code below(check if data is added in the array)
@@ -163,7 +137,7 @@ def lineGraph(chartTypes,country,coronavirusInfoType):
                 elif coronavirusInfoType==2:
                     death=int(rowData[6])
                     caseOrDeath.append(death)
-                    yAxis="Death"
+                    yAxis="Deaths"
 
                   
         #Test Code below(check if data is added in the array)    
@@ -215,7 +189,7 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
                 elif coronavirusInfoType==2:
                     death=int(rowData[7])
                     caseOrDeath.append(death)
-                    yAxis="Death"
+                    yAxis="Deaths"
 
              
         #Test Code below(check if data is added in the array)
@@ -226,7 +200,7 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
     DisplayVisualisation(chartTypes,country,yAxis,coronavirusInfoType,date,caseOrDeath)
 
 
-def allVisualiation(chartTypes,country,coronavirusInfoType):
+def allVisualiations(chartTypes,country,coronavirusInfoType):
     #calls ths function
     with open('WHO-COVID-19-global-data.csv', 'r') as f:
         csv_reader = csv.reader(f)
@@ -282,25 +256,27 @@ def allVisualiation(chartTypes,country,coronavirusInfoType):
 def DisplayVisualisation(chartType,country,yAxis,coronavirusInfoType,date,caseOrDeath):
     #Display all the essentail features of the graph
     plt.xticks(rotation=90)
-    plt.grid(True)
-    plt.title("Number of "+yAxis+" in  "+country)
+    plt.grid()
+    plt.title("Number of "+yAxis.lower()+" in  "+country)
     plt.xlabel('Date -(dd/MM/yyyy)')
     plt.ylabel(' '+yAxis)  
   
     plt.legend(['Cases', 'Deaths'])
 
     if  chartType==1:
-        plt.plot(date[0::30],caseOrDeath[0::30])
+        plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='green', ms=5)
 
     elif chartType==2:
-        plt.bar(date[0::30],caseOrDeath[0::30])
+        plt.bar(date[0::30],caseOrDeath[0::30], color='blue')
 
     elif chartType==3:
-        plt.scatter(date[0::30],caseOrDeath[0::30])
+       
+        plt.colorbar()   
+        plt.scatter(date[0::30],caseOrDeath[0::30], marker = 'x', color='blue', ms=5)
 
     
     elif chartType==4:
-        plt.plot(date[0::30],caseOrDeath[0::30])
+        plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='black', ms=5)
 
     
     
@@ -353,9 +329,8 @@ def chartOrGraph(chartTypes,country,coronavirusInfoType):
         elif chartTypes==4:
             cumulativeGraph(chartTypes,country,coronavirusInfoType)
             break
-        
         elif chartTypes==5:
-            allVisualiation(chartTypes,country,coronavirusInfoType)
+            allVisualiations(chartTypes,country,coronavirusInfoType)
             break
             
         
@@ -384,7 +359,6 @@ while(True):
         mostDeathOrVaccine()
     elif menuOption=="4":
         vaccineType()
-        
     elif menuOption=="5":
         popularVaccinePerCountry()
         
