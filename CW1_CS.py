@@ -306,8 +306,47 @@ def DisplayVisualisation(chartType,country,yAxis,coronavirusInfoType,date,caseOr
     
     plt.show()
     
+def loadData(country,coronavirusInfoType,chartTypes,):
+        #calls ths function
+        
+            csv_reader = csv.reader(casesAndDeathData)
+            # skip the header
+            next(csv_reader)
+            
+            #Two arrays stores the data for x and y axis number
+            date=[]
+            caseOrDeath=[]
+            cumulativeCaseOrDeath=[]
+            
+            # retrieve specific data fromthe file and stores it in an array above 
+            for rowData in csv_reader:
+                if rowData[2]==country:
+                    date.append(str(rowData[0]))
+                    if (coronavirusInfoType==1 and chartTypes==4):
+                        case=int(rowData[5])
+                        caseOrDeath.append(case)
+                        yAxisLabel="Cases"
 
+                    elif coronavirusInfoType==2 and chartTypes==4:
+                        death=int(rowData[7])
+                        caseOrDeath.append(death)
+                        yAxis="Deaths"
 
+                    elif coronavirusInfoType==1:
+                        case=int(rowData[4])
+                        caseOrDeath.append(case)
+                        yAxis="Cases"
+
+                    elif coronavirusInfoType==2:
+                        death=int(rowData[6])
+                        caseOrDeath.append(death)
+                        yAxis="Deaths"
+            #Test Code below(check if data is added in the arrays)
+            print(date)
+            print(caseOrDeath)
+            print(cumulativeCaseOrDeath)
+            casesAndDeathData.close()
+    return date
     
     
 
