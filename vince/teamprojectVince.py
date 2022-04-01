@@ -8,7 +8,7 @@ plt.title("Pie Chart of Most Popular Vaccines from a Group of Countries",fontsiz
 countries = []
 count = []
 explode = (0.05, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-with open('C:\\Users\\User\\OneDrive\\Desktop\\teamproject\\piechart.txt','r') as file:
+with open('C:\\Users\\User\\OneDrive\\Desktop\\teamproject\\mydata.txt','r') as file:
     data = file.readlines()
 for i in data:
     broken = i.split('\t')
@@ -19,7 +19,7 @@ for i in data:
 plt.pie(count, explode=explode, labels=countries, autopct='%1.1f%%', startangle = 75, radius= 1,wedgeprops = {"edgecolor" : "black",'linewidth': 1,'antialiased': True})
 labels = ['{0} - {1:1.2f} %'.format(i,j) for i,j in zip(countries, count)]
 plt.axis('equal')
-plt.show()
+
 
 
 plt.figure(figsize=(15,15))
@@ -27,7 +27,7 @@ plt.title("Bar Chart of Distribution of Vaccines",fontsize = 20)
 
 Countries = []
 count = []
-with open('C:\\Users\\User\\OneDrive\\Desktop\\teamproject\\piechart.txt','r') as file:
+with open('C:\\Users\\User\\OneDrive\\Desktop\\teamproject\\mydata.txt','r') as file:
   data = file.readlines()
 for i in data:
     broken = i.split('\t')
