@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 
+plt.title("Pie Chart of Most Popular Vaccines from a Group of Countries")
 countries = []
 count = []
 explode = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
