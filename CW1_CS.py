@@ -88,27 +88,8 @@ def barGraph(chartTypes,country,coronavirusInfoType):
         print(caseOrDeath)
    
     
-    if coronavirusInfoType==1:
-        plt.bar(date[0::30],caseOrDeath[0::30], color='green')
-    elif coronavirusInfoType==2:
-        plt.bar(date[0::30],caseOrDeath[0::30], color='green')
+    DisplayVisualisation(chartTypes,country,yAxis,coronavirusInfoType,date,caseOrDeath)
 
-
-
-
-    #Display all the essentail features of the graph
-    plt.xticks(rotation=90)
-    plt.grid(True)
-    plt.title("Number of death in  "+country)
-    plt.xlabel('Date-(dd/MM/yyyy)')
-    plt.ylabel(' '+yAxis)  
-    plt.legend(['Cases', 'Deaths'])
-    
-
-    
- 
-    plt.show()     
-                
         
   
 
@@ -149,25 +130,8 @@ def scatterChart(chartTypes,country,coronavirusInfoType):
         print(date)
         print(caseOrDeath)
     
-   
-   
-    if coronavirusInfoType==1:
-        plt.scatter(date[0::90],caseOrDeath[0::90], color='green')
-    elif coronavirusInfoType==2:
-        plt.scatter(date[0::90],caseOrDeath[0::90], color='green')
-
-
-
-    #Display all the essentail features of the graph
-    plt.xticks(rotation=90)
-    plt.grid(True)
-    plt.title("Number of death in  "+country)
-    plt.xlabel('Date-(dd/MM/yyyy)')
-    plt.ylabel(' '+yAxis)  
-  
-    plt.legend(['Cases', 'Deaths'])
-    plt.show()     
-    
+        DisplayVisualisation(chartTypes,country,yAxis,coronavirusInfoType,date,caseOrDeath)
+        
     
     
       
@@ -206,23 +170,12 @@ def lineGraph(chartTypes,country,coronavirusInfoType):
         print(date)
         print(caseOrDeath)
     
-    if coronavirusInfoType==1:
-        plt.plot(date[0::30],caseOrDeath[0::30],'*g--')
-    elif coronavirusInfoType==2:
-        plt.plot(date[0::30],caseOrDeath[0::30],'rD--')
-
-
-
-    #Display all the essentail features of the graph
-    plt.xticks(rotation=90)
-    plt.grid(True)
-    plt.title("Number of "+yAxis+" in  "+country)
-    plt.xlabel('Date -(dd/MM/yyyy)')
-    plt.ylabel(' '+yAxis)  
   
-    plt.legend(['Cases', 'Deaths'])
-    
-    plt.show()     
+
+
+
+    DisplayVisualisation(chartTypes,country,yAxis,coronavirusInfoType,date,caseOrDeath)
+   
     
     
    
@@ -270,24 +223,8 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
         print(caseOrDeath)
         
     
-    if coronavirusInfoType==1:
-        plt.plot(date[0::30],caseOrDeath[0::30],)
-    elif coronavirusInfoType==2:
-        plt.plot(date[0::30],caseOrDeath[0::30],)
+    DisplayVisualisation(chartTypes,country,yAxis,coronavirusInfoType,date,caseOrDeath)
 
-
-
-    #Display all the essentail features of the graph
-    plt.xticks(rotation=90)
-    plt.grid(True)
-    plt.title("Number of death in  "+country)
-    plt.xlabel('Date -(dd/MM/yyyy)')
-    plt.ylabel(' '+yAxis)  
-  
-    plt.legend(['Cases', 'Deaths'])
-
-    plt.show()     
-                    
 
 def allVisualiation(chartTypes,country,coronavirusInfoType):
     #calls ths function
@@ -330,7 +267,7 @@ def allVisualiation(chartTypes,country,coronavirusInfoType):
         print(date)
         print(caseOrDeath)
     
-    fig, axs = plt.subplots(1, 2)
+    fig, axs = plt.subplots(1,2,3,4)
     axs[0].set_title("Number of "+yAxis+"in  "+country)
     axs[1].set_title("Number of "+yAxis+"in  "+country)
     axs[2].set_title("Number of "+yAxis+"in  "+country)
@@ -338,12 +275,37 @@ def allVisualiation(chartTypes,country,coronavirusInfoType):
     axs[0].plt(dates, caseOrDeath)
     axs[1].bar(dates, caseOrDeath)
     axs[2].scatter(dates,caseOrDeath)
-    axs[3].plt(dates,caseOrDeath)
+    axs[3].plt(dates,caseOrDeath) 
     
     plt.show()
   
+def DisplayVisualisation(chartType,country,yAxis,coronavirusInfoType,date,caseOrDeath):
+    #Display all the essentail features of the graph
+    plt.xticks(rotation=90)
+    plt.grid(True)
+    plt.title("Number of "+yAxis+" in  "+country)
+    plt.xlabel('Date -(dd/MM/yyyy)')
+    plt.ylabel(' '+yAxis)  
+  
+    plt.legend(['Cases', 'Deaths'])
 
+    if  chartType==1:
+        plt.plot(date[0::30],caseOrDeath[0::30])
 
+    elif chartType==2:
+        plt.bar(date[0::30],caseOrDeath[0::30])
+
+    elif chartType==3:
+        plt.scatter(date[0::30],caseOrDeath[0::30])
+
+    
+    elif chartType==4:
+        plt.plot(date[0::30],caseOrDeath[0::30])
+
+    
+    
+    plt.show()
+    
 
 
     
