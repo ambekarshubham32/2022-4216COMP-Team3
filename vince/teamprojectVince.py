@@ -39,3 +39,6 @@ for i in data:
     plt.ylabel('Number of Countries ')
 plt.show()
 
+print("Input the name of a country to show it's vaccine related information ")
+userInput = input()
+print(userInput+" lol")
