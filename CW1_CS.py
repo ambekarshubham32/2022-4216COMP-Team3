@@ -343,8 +343,8 @@ while(True):
     #Displays the menu
     print("Menu")
     print("1 - Top 5 vaccines\n2 - Finding data by country\n3 - What time of year had\
-        the most deaths vaccines?\n4. - Type of vaccines used\n5. - Popular vaccine per country\
-        \n6. - Comparing total deaths and vaccines of specific countries\n7 - Quit")
+        the most deaths vaccines?\n4 - Type of vaccines used\n5 - Popular vaccine per country\
+        \n6 - Comparing total deaths and vaccines of specific countries\n7 - Quit")
 
     #user enter's the choosen option
     print("Please enter the number  here:")
