@@ -3,6 +3,7 @@ from ctypes.wintypes import tagRECT
 import os
 from tokenize import String
 from types import TracebackType
+from matplotlib import dates
 from matplotlib.axis import YAxis
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -101,7 +102,6 @@ def barGraph(chartTypes,country,coronavirusInfoType):
     plt.title("Number of death in  "+country)
     plt.xlabel('Date-(dd/MM/yyyy)')
     plt.ylabel(' '+yAxis)  
-  
     plt.legend(['Cases', 'Deaths'])
     
 
@@ -268,11 +268,12 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
         #Test Code below(check if data is added in the array)
         print(date)
         print(caseOrDeath)
+        
     
     if coronavirusInfoType==1:
-        plt.plot(date[0::30],caseOrDeath[0::30],'*g--')
+        plt.plot(date[0::30],caseOrDeath[0::30],)
     elif coronavirusInfoType==2:
-        plt.plot(date[0::30],caseOrDeath[0::30],'rD--')
+        plt.plot(date[0::30],caseOrDeath[0::30],)
 
 
 
@@ -288,7 +289,64 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
     plt.show()     
                     
 
+def allVisualiation(chartTypes,country,coronavirusInfoType):
+    #calls ths function
+    with open('WHO-COVID-19-global-data.csv', 'r') as f:
+        csv_reader = csv.reader(f)
+        # skip the header
+        next(csv_reader)
+        
+        #Two arrays stores the data for x and y axis number
+        date=[]
+        caseOrDeath=[]
+        cumulativeCaseOrDeath=[]
+           
+    
+        
+        # retrieve specific data fromthe file and stores it in an array above 
+        for rowData in csv_reader:
+            if rowData[2]==country:
+                date.append(str(rowData[0]))
+                if (coronavirusInfoType==1 and chartTypes==4):
+                    case=int(rowData[5])
+                    caseOrDeath.append(case)
+                    yAxis="Cases"
 
+                elif coronavirusInfoType==2 and chartTypes==4:
+                    death=int(rowData[7])
+                    caseOrDeath.append(death)
+                    yAxis="Deaths"
+
+                elif coronavirusInfoType==1:
+                    case=int(rowData[4])
+                    caseOrDeath.append(case)
+                    yAxis="Cases"
+
+                elif coronavirusInfoType==2:
+                    death=int(rowData[6])
+                    caseOrDeath.append(death)
+                    yAxis="Deaths"
+        #Test Code below(check if data is added in the array)
+        print(date)
+        print(caseOrDeath)
+    
+    fig, axs = plt.subplots(1, 2)
+    axs[0].set_title("Number of "+yAxis+"in  "+country)
+    axs[1].set_title("Number of "+yAxis+"in  "+country)
+    axs[2].set_title("Number of "+yAxis+"in  "+country)
+    axs[3].set_title("Number of "+yAxis+"in  "+country)
+    axs[0].plt(dates, caseOrDeath)
+    axs[1].bar(dates, caseOrDeath)
+    axs[2].scatter(dates,caseOrDeath)
+    axs[3].plt(dates,caseOrDeath)
+    
+    plt.show()
+  
+
+
+
+
+    
     
 
 
@@ -303,7 +361,8 @@ def countryDataSelection():
         print("1.Confimed Cases\n2.Death")
         coronavirusInfoType=int(input())
         print("Different types of charts to presentation data . ")
-        print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph ")
+        print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph\
+            \n5. All the graph and function in the list ")
         chartTypes=int(input())
         if coronavirusInfoType==1:
             chartOrGraph(chartTypes,country,coronavirusInfoType)    
@@ -334,7 +393,10 @@ def chartOrGraph(chartTypes,country,coronavirusInfoType):
         elif chartTypes==4:
             cumulativeGraph(chartTypes,country,coronavirusInfoType)
             break
-
+        
+        elif chartTypes==5:
+            allVisualiation(chartTypes,country,coronavirusInfoType)
+            break
             
         
         else:
@@ -372,9 +434,3 @@ while(True):
         break 
     else:
         print("Invalid Input. Please enter a number from the menu.")
-    
-        
-    
-   
-    
- 
