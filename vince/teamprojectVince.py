@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import pandas as pd
 
 plt.title("Pie Chart of Most Popular Vaccines from a Group of Countries")
 countries = []
@@ -12,5 +13,5 @@ for i in data:
     print(broken)
     countries.append(broken[0])
     count.append(int(broken[1]))
-plt.pie(amount, explode=explode, labels=countries, autopct='%1.1f%%', shadow=True, startangle = 75)
+plt.pie(count, explode=explode, labels=countries, autopct='%1.1f%%', shadow=True, startangle = 75)
 plt.show()
