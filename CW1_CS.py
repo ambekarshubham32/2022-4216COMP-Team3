@@ -1,4 +1,4 @@
-#Importing essentail libraries
+# essentail libraries
 from ctypes.wintypes import tagRECT
 import os
 from tokenize import String
@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import csv
 import datetime
-
 from sympy import true
 #Displays the  data from the Excel files
 casesAndDeathData=pd.read_csv("WHO-COVID-19-global-data.csv")
@@ -97,6 +96,7 @@ def barGraph(chartTypes,country,coronavirusInfoType):
 
 
     #Display all the essentail features of the graph
+    plt.xticks(rotation=90)
     plt.grid(True)
     plt.title("Number of death in  "+country)
     plt.xlabel('Date-(dd/MM/yyyy)')
@@ -159,6 +159,7 @@ def scatterChart(chartTypes,country,coronavirusInfoType):
 
 
     #Display all the essentail features of the graph
+    plt.xticks(rotation=90)
     plt.grid(True)
     plt.title("Number of death in  "+country)
     plt.xlabel('Date-(dd/MM/yyyy)')
@@ -194,7 +195,6 @@ def lineGraph(chartTypes,country,coronavirusInfoType):
                     case=int(rowData[4])
                     caseOrDeath.append(case)
                     yAxis="Cases"
-                    #ax.set_title("Cumulative Cases", fontsize=14)
 
                 elif coronavirusInfoType==2:
                     death=int(rowData[6])
@@ -214,6 +214,7 @@ def lineGraph(chartTypes,country,coronavirusInfoType):
 
 
     #Display all the essentail features of the graph
+    plt.xticks(rotation=90)
     plt.grid(True)
     plt.title("Number of "+yAxis+" in  "+country)
     plt.xlabel('Date -(dd/MM/yyyy)')
@@ -276,19 +277,19 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
 
 
     #Display all the essentail features of the graph
+    plt.xticks(rotation=90)
     plt.grid(True)
     plt.title("Number of death in  "+country)
     plt.xlabel('Date -(dd/MM/yyyy)')
     plt.ylabel(' '+yAxis)  
   
     plt.legend(['Cases', 'Deaths'])
-    
 
-   
- 
     plt.show()     
                     
 
+
+    
 
 
 
@@ -302,7 +303,7 @@ def countryDataSelection():
         print("1.Confimed Cases\n2.Death")
         coronavirusInfoType=int(input())
         print("Different types of charts to presentation data . ")
-        print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative  graph\n ")
+        print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph ")
         chartTypes=int(input())
         if coronavirusInfoType==1:
             chartOrGraph(chartTypes,country,coronavirusInfoType)    
@@ -318,9 +319,8 @@ def countryDataSelection():
   
     
            
- #runs the graph or chart function 
+ #Finds the graph or chart functions and runs them
 def chartOrGraph(chartTypes,country,coronavirusInfoType): 
-    
     while True:        
         if chartTypes==1:
             lineGraph(chartTypes,country,coronavirusInfoType)
@@ -334,20 +334,26 @@ def chartOrGraph(chartTypes,country,coronavirusInfoType):
         elif chartTypes==4:
             cumulativeGraph(chartTypes,country,coronavirusInfoType)
             break
+
+            
+        
         else:
             print("Invalid graph choice")
                  
 
 #Menu
 while(True):
+    #Displays the menu
     print("Menu")
-    print("1 - Top 5 vaccines\n2 - Finding data by country\n3 - What time of year had the most deaths/vaccines?\
-        n4. - Type of vaccines used\n5. - Popular vaccine per country\n6. - Comparing total deaths and vaccines of specific countries\n7 - Quit")
+    print("1 - Top 5 vaccines\n2 - Finding data by country\n3 - What time of year had\
+        the most deaths vaccines?\n4. - Type of vaccines used\n5. - Popular vaccine per country\
+        \n6. - Comparing total deaths and vaccines of specific countries\n7 - Quit")
 
+    #user enter's the choosen option
     print("Please enter the number  here:")
     menuOption=input()
 
-    #Executes the option code of the function
+    #Runs a function depending on the user's input
     if menuOption=="1":
         topFiveVaccine()
     elif menuOption=="2":
@@ -363,8 +369,7 @@ while(True):
     elif menuOption=="6":
         comparisonTotalDeathOrVaccineOnSpecificCountries()
     elif menuOption=="7":
-        break
-         
+        break 
     else:
         print("Invalid Input. Please enter a number from the menu.")
     
