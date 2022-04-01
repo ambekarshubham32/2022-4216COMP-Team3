@@ -88,9 +88,9 @@ def barGraph(chartTypes,country,coronavirusInfoType):
    
     
     if coronavirusInfoType==1:
-        plt.bar(date[0::90],caseOrDeath[0::90], color='green')
+        plt.bar(date[0::30],caseOrDeath[0::30], color='green')
     elif coronavirusInfoType==2:
-        plt.bar(date[0::90],caseOrDeath[0::90], color='green')
+        plt.bar(date[0::30],caseOrDeath[0::30], color='green')
 
 
 
@@ -207,9 +207,9 @@ def lineGraph(chartTypes,country,coronavirusInfoType):
         print(caseOrDeath)
     
     if coronavirusInfoType==1:
-        plt.plot(date[0::90],caseOrDeath[0::90],'*g--')
+        plt.plot(date[0::30],caseOrDeath[0::30],'*g--')
     elif coronavirusInfoType==2:
-        plt.plot(date[0::90],caseOrDeath[0::90],'rD--')
+        plt.plot(date[0::30],caseOrDeath[0::30],'rD--')
 
 
 
@@ -270,9 +270,9 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
         print(caseOrDeath)
     
     if coronavirusInfoType==1:
-        plt.plot(date[0::90],caseOrDeath[0::90],'*g--')
+        plt.plot(date[0::30],caseOrDeath[0::30],'*g--')
     elif coronavirusInfoType==2:
-        plt.plot(date[0::90],caseOrDeath[0::90],'rD--')
+        plt.plot(date[0::30],caseOrDeath[0::30],'rD--')
 
 
 
