@@ -129,7 +129,7 @@ def displayVisualisation(chartType,country,yAxis,coronavirusInfoType,date,caseOr
     elif chartType==2:
         plt.bar(date[0::30],caseOrDeath[0::30], color='blue')
     elif chartType==3:       
-        plt.scatter(date[0::30],caseOrDeath[0::30], marker = 'x', color='blue', ms=5)
+        plt.scatter(date[0::30],caseOrDeath[0::30], marker = 'x', color='blue')
     elif chartType==4:
         plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='black', ms=5)  
     plt.show()
@@ -155,33 +155,7 @@ def countryDataSelection():
         chartTypes=int(input())
         loadData(chartTypes,country,coronavirusInfoType)
           
-            
-        
-          
 
-
-
-  
-    
-           
- #Finds the graph or chart functions and runs them
-def chartOrGraph(chartTypes,country,coronavirusInfoType): 
-    while True:        
-        if chartTypes==1:
-            lineGraph(chartTypes,country,coronavirusInfoType)
-            break
-        elif chartTypes==2:
-            barGraph(chartTypes,country,coronavirusInfoType)
-            break
-        elif chartTypes==3:
-            scatterChart(chartTypes,country,coronavirusInfoType)
-            break
-        elif chartTypes==4:
-            cumulativeGraph(chartTypes,country,coronavirusInfoType)
-            break 
-        else:
-            print("Invalid graph choice")
-                 
 
 #Menu
 while(True):
