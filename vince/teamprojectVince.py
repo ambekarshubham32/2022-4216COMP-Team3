@@ -10,7 +10,6 @@ print("\nENTER \n\n"+"P for Pie Chart\n"+"B for Bar Chart\n"+"L for Line Graph\n
 
 plt.figure(figsize=(15,15))
 plt.title("Pie Chart of Most Popular Vaccines from a Group of Countries",fontsize = 20)
-
 countries = []
 count = []
 explode = (0.05, 0, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -29,7 +28,6 @@ plt.show()
 
 plt.figure(figsize=(15,15))
 plt.title("Bar Chart of Distribution of Vaccines",fontsize = 20)
-
 Countries = []
 count = []
 with open('C:\\Users\\User\\OneDrive\\Desktop\\teamproject\\mydata.txt','r') as file:
@@ -62,6 +60,3 @@ plt.xlabel('Vaccines')
 plt.ylabel('Total')
 plt.show()
 
-print("Input the name of a country to show it's vaccine related information ")
-secondInput = input()
-print(secondInput)
