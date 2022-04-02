@@ -43,7 +43,7 @@ def loadData(chartTypes,country,coronavirusInfoType):
         caseOrDeath=[]
      
         # retrieve specific data fromthe file and stores it in an array above 
-        
+
         for rowData in csv_reader:
             if rowData[2]==country:
                 date.append(str(rowData[0]))
@@ -100,12 +100,14 @@ def countryDataSelection():
         print("Please enter the country's name below(first letter uppercase): ")
         country=input()
         print("What type of  Covid 19 related information do you want to know.")
-        print("1.Confimed Cases\n2.Death")
+        print("1.Confimed Cases\n2.Death\n Please enter the number   below:")
+    
         coronavirusInfoType=int(input())
         print("Different types of charts to presentation data . ")
-        print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph")
+        print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph\n Please enter the number   below:")
         chartTypes=int(input())
         loadData(chartTypes,country,coronavirusInfoType)
+        
 #Menu
 while(True):
     #Displays the menu
@@ -113,27 +115,27 @@ while(True):
     print("1 - Top 5 vaccines\n2 - Find data by country\n3 - What time of year had the\
         most deaths vaccines?\n4 - Type of vaccines used\n5 - Popular vaccine per\
         country\n6 - Comparing total deaths and vaccines of specific countries\n7\
-        - Quit\nPlease enter the number  here:")
+        - Quit\nPlease enter the number   below:")
 
     #user enter's the choosen option
     
     menuOption=input()
-
+    match menuOption:
     #Runs a function depending on the user's input
-    if menuOption=="1":
-        topFiveVaccine()
-    elif menuOption=="2":
-        countryDataSelection()
-    elif menuOption=="3":
-        mostDeathOrVaccine()
-    elif menuOption=="4":
-        vaccineType()
-    elif menuOption=="5":
-        popularVaccinePerCountry()
-        
-    elif menuOption=="6":
-        comparisonTotalDeathOrVaccineOnSpecificCountries()
-    elif menuOption=="7":
-        break 
-    else:
-        print("Invalid Input.Please enter a number from the menu.")
+        case "1":
+            topFiveVaccine()
+        case "2":
+            countryDataSelection()
+        case "3":
+            mostDeathOrVaccine()
+        case "4":
+            vaccineType()
+        case "5":
+            popularVaccinePerCountry()
+            
+        case "6":
+            comparisonTotalDeathOrVaccineOnSpecificCountries()
+        case "7":
+            break
+        case _:
+            print("Invalid Input.Please enter a number from the menu.")
