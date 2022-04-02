@@ -100,7 +100,7 @@ def countryDataSelection():
         country=input()
         print("What type of  Covid 19 related information do you want to know.")
         print("1.Confimed Cases\n2.Death")
-        coronavirusInfoType=input()
+        coronavirusInfoType=int(input())
         print("Different types of charts to presentation data . ")
         print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph")
         chartTypes=int(input())
