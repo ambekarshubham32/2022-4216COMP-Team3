@@ -73,13 +73,14 @@ def loadData(chartTypes,country,coronavirusInfoType):
     displayVisualisation(chartTypes,country,date,caseOrDeath,yAxisLabel)
     
 def displayVisualisation(chartTypes,country,date,caseOrDeath,yAxisLabel):
-        #Display all the essentail features of the graph
+  #Display all the essentail features of the graph
     plt.xticks(rotation=90)
- 
-    plt.title("Number of "+" in  "+country)
-    plt.xlabel('Date-(dd/MM/yyyy)')
-    plt.ylabel(' '+yAxisLabel)  
     plt.grid()
+    plt.title("Number of "+yAxisLabel.lower()+" in  "+country)
+    plt.xlabel('Date -(dd/MM/yyyy)')
+    plt.ylabel(' '+yAxisLabel)  
+  
+    plt.legend(['Cases', 'Deaths'])
 
     if  chartTypes==1:
         plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='green')
