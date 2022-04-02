@@ -6,6 +6,8 @@ print("\nWelcome!\n")
 print("\nENTER \n\n"+"P for Pie Chart\n"+"B for Bar Chart\n"+"L for Line Graph\n")
 
 
+
+
 plt.figure(figsize=(15,15))
 plt.title("Pie Chart of Most Popular Vaccines from a Group of Countries",fontsize = 20)
 
@@ -19,11 +21,10 @@ for i in data:
     #print(broken)
     countries.append(broken[0])
     count.append(int(broken[1]))
-    
 plt.pie(count, explode=explode, labels=countries, autopct='%1.1f%%', startangle = 75, radius= 1,wedgeprops = {"edgecolor" : "black",'linewidth': 1,'antialiased': True})
 labels = ['{0} - {1:1.2f} %'.format(i,j) for i,j in zip(countries, count)]
 plt.axis('equal')
-
+plt.show()
 
 
 plt.figure(figsize=(15,15))
@@ -43,6 +44,8 @@ for i in data:
     plt.ylabel('Number of Countries ')
 plt.show()
 
+
+
 plt.figure(figsize=(15,15))
 Countries = []
 count = []
@@ -61,4 +64,4 @@ plt.show()
 
 print("Input the name of a country to show it's vaccine related information ")
 secondInput = input()
-print(secondInput+" lol")
+print(secondInput)
