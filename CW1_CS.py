@@ -70,7 +70,7 @@ def loadData(chartTypes,country,coronavirusInfoType):
         print(date)
         print(caseOrDeath)
         
-    displayVisualisation(chartTypes,country,date,coronavirusInfoType,caseOrDeath)
+    displayVisualisation(chartTypes,country,date,caseOrDeath)
     
 def displayVisualisation(chartTypes,country,date,caseOrDeath):
         #Display all the essentail features of the graph
