@@ -50,36 +50,36 @@ def loadData(chartTypes,country,coronavirusInfoType):
                 if coronavirusInfoType==1:
                     case=int(rowData[4])
                     caseOrDeath.append(case)
-                    yAxis="Cases"
+                    #yAxis="Cases"
 
                 elif coronavirusInfoType==2:
                     death=int(rowData[6])
                     caseOrDeath.append(death)
-                    yAxis="Deaths"
+                    #yAxis="Deaths"
                 elif (coronavirusInfoType==1 and chartTypes==4):
                     case=int(rowData[5])
                     caseOrDeath.append(case)
-                    yAxis="Cases"
+                    #yAxis="Cases"
 
                 elif (coronavirusInfoType==2 and chartTypes==4):
                     death=int(rowData[7])
                     caseOrDeath.append(death)
-                    yAxis="Deaths"
+                    #yAxis="Deaths"
                 
                 
             #Test Code below(check if data is added in the array)
         print(date)
         print(caseOrDeath)
         
-    displayVisualisation(chartTypes,country,yAxis,coronavirusInfoType,date,caseOrDeath)
+    displayVisualisation(chartTypes,country,,coronavirusInfoType,date,caseOrDeath)
     
 def displayVisualisation(chartType,country,yAxis,date,caseOrDeath):
         #Display all the essentail features of the graph
     plt.xticks(rotation=90)
  
-    plt.title("Number of "+yAxis.lower()+" in  "+country)
+    plt.title("Number of  in  "+country)
     plt.xlabel('Date -(dd/MM/yyyy)')
-    plt.ylabel(' '+yAxis,)  
+    plt.ylabel(' ')  
     plt.gride()
 
     if  chartType==1:
