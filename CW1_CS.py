@@ -131,7 +131,9 @@ def displayVisualisation(chartType,country,yAxis,coronavirusInfoType,date,caseOr
     elif chartType==3:       
         plt.scatter(date[0::30],caseOrDeath[0::30], marker = 'x', color='blue')
     elif chartType==4:
-        plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='black', ms=5)  
+        plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='black', ms=5) 
+    elif chartType==5:
+        plt.pie(date[0::30],caseOrDeath[0::30]) 
     plt.show()
     
 
@@ -151,7 +153,7 @@ def countryDataSelection():
         print("1.Confimed Cases\n2.Death")
         coronavirusInfoType=int(input())
         print("Different types of charts to presentation data . ")
-        print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph ")
+        print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph \n5.Pie chart")
         chartTypes=int(input())
         loadData(chartTypes,country,coronavirusInfoType)
           
@@ -161,9 +163,9 @@ def countryDataSelection():
 while(True):
     #Displays the menu
     print("Menu")
-    print("1 - Top 5 vaccines\n2 - Finding data by country\n3 - What time of year had\
-        the most deaths vaccines?\n4 - Type of vaccines used\n5 - Popular vaccine per country\
-        \n6 - Comparing total deaths and vaccines of specific countries\n7 - Quit")
+    print("1 - Top 5 vaccines\n2 - Finding data by country\n3 - What time of year had the\
+        most deaths vaccines?\n4 - Type of vaccines used\n5 - Popular vaccine per\
+        country\n6 - Comparing total deaths and vaccines of specific countries\n7 - Quit")
 
     #user enter's the choosen option
     print("Please enter the number  here:")
