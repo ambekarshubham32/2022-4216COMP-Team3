@@ -96,20 +96,35 @@ def displayVisualisation(chartTypes,country,date,caseOrDeath,yAxisLabel):
 
 #User Input's country information and the graphor chart type
 def countryDataSelection():
+   
     try:
         print("Please enter the country's name below(first letter uppercase): ")
         country=input()
+        #print("There is not data about this "+country+".Please try again")
+ 
+        
         print("What type of  Covid 19 related information do you want to know.")
         print("1.Confimed Cases\n2.Death\n Please enter the number   below:")
-    
         coronavirusInfoType=int(input())
-        print("Different types of charts to presentation data . ")
-        print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph\n Please enter the number   below:")
-        chartTypes=int(input())
-        loadData(chartTypes,country,coronavirusInfoType)
+        
+            
+    except ValueError:
+        print("Please  enter a number from the given list")  
+        countryDataSelection()
+    else:
+        
+            print("Different types of charts to presentation data . ")
+            print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph\n Please enter the number   below:")
+            chartTypes=int(input())
+                
+        
+        
+            loadData(chartTypes,country,coronavirusInfoType)
+  
+
     
-    except:
-        print("Invalid Input")    
+    
+      
     
         
 #Menu
