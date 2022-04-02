@@ -29,132 +29,7 @@ vaccineData=pd.read_csv("vaccination-data.csv")
 
 #Shubham
 
-def barGraph(chartTypes,country,coronavirusInfoType):
-    #calls ths function
-    with open('WHO-COVID-19-global-data.csv', 'r') as f:
-        csv_reader = csv.reader(f)
-        # skip the header
-        next(csv_reader)
-        
-        #Two arrays stores the data for x and y axis number
-        date=[]
-        caseOrDeath=[]
-           
-    
-        
-        # retrieve specific data fromthe file and stores it in an array above 
-        for rowData in csv_reader:
-            if rowData[2]==country:
-                date.append(str(rowData[0]))
-                if coronavirusInfoType==1:
-                    case=int(rowData[4])
-                    caseOrDeath.append(case)
-                    yAxis="Cases"
-
-                elif coronavirusInfoType==2:
-                    death=int(rowData[6])
-                    caseOrDeath.append(death)
-                    yAxis="Deaths"
-
-               
-        #Test Code below(check if data is added in the array)
-        print(date)
-        print(caseOrDeath)
-   
-    
-    displayVisualisation(chartTypes,country,yAxis,coronavirusInfoType,date,caseOrDeath)
-
-        
-  
-
-       
-    
-
-
-def scatterChart(chartTypes,country,coronavirusInfoType):
-    
-    #calls ths function
-    with open('WHO-COVID-19-global-data.csv', 'r') as f:
-        csv_reader = csv.reader(f)
-        # skip the header
-        next(csv_reader)
-        
-        #Two arrays stores the data for x and y axis number
-        date=[]
-        caseOrDeath=[]
-           
-    
-        
-        # retrieve specific data fromthe file and stores it in an array above 
-        for rowData in csv_reader:
-            if rowData[2]==country:
-                date.append(str(rowData[0]))
-                if coronavirusInfoType==1:
-                    case=int(rowData[4])
-                    caseOrDeath.append(case)
-                    yAxis="Cases"
-
-                elif coronavirusInfoType==2:
-                    death=int(rowData[6])
-                    caseOrDeath.append(death)
-                    yAxis="Deaths"
-
-              
-        #Test Code below(check if data is added in the array)
-        print(date)
-        print(caseOrDeath)
-    
-        displayVisualisation(chartTypes,country,yAxis,coronavirusInfoType,date,caseOrDeath)
-        
-    
-    
-      
-
-            
-def lineGraph(chartTypes,country,coronavirusInfoType):
-
-    #calls ths function
-    with open('WHO-COVID-19-global-data.csv', 'r') as f:
-        csv_reader = csv.reader(f)
-        # skip the header
-        next(csv_reader)
-        
-        #Two arrays stores the data for x and y axis number
-        date=[]
-        caseOrDeath=[]
-           
-    
-        
-        # retrieve specific data fromthe file and stores it in an array above 
-        for rowData in csv_reader:
-            if rowData[2]==country:
-                date.append(str(rowData[0]))
-                if coronavirusInfoType==1:
-                    case=int(rowData[4])
-                    caseOrDeath.append(case)
-                    yAxis="Cases"
-
-                elif coronavirusInfoType==2:
-                    death=int(rowData[6])
-                    caseOrDeath.append(death)
-                    yAxis="Deaths"
-
-                  
-        #Test Code below(check if data is added in the array)    
-        print(date)
-        print(caseOrDeath)
-    
-  
-
-
-
-    displayVisualisation(chartTypes,country,yAxis,coronavirusInfoType,date,caseOrDeath)
-   
-    
 def loadData(chartTypes,country,coronavirusInfoType):
-   
-    
-        
     with open('WHO-COVID-19-global-data.csv', 'r') as f:
         csv_reader = csv.reader(f)
         # skip the header
@@ -193,7 +68,7 @@ def loadData(chartTypes,country,coronavirusInfoType):
         print(date)
         print(caseOrDeath)
         
-    displayVisualisation(chartType,country,yAxis,coronavirusInfoType,date,caseOrDeath):
+        displayVisualisation(chartTypes,country,yAxis,coronavirusInfoType,date,caseOrDeath)
     
        
    
@@ -253,8 +128,7 @@ def displayVisualisation(chartType,country,yAxis,coronavirusInfoType,date,caseOr
         plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='green', ms=5)
     elif chartType==2:
         plt.bar(date[0::30],caseOrDeath[0::30], color='blue')
-    elif chartType==3:      
-        plt.colorbar()   
+    elif chartType==3:       
         plt.scatter(date[0::30],caseOrDeath[0::30], marker = 'x', color='blue', ms=5)
     elif chartType==4:
         plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='black', ms=5)  
