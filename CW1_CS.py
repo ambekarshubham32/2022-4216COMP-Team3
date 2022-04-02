@@ -120,22 +120,22 @@ while(True):
     #user enter's the choosen option
     
     menuOption=input()
-    match menuOption:
+
     #Runs a function depending on the user's input
-        case "1":
-            topFiveVaccine()
-        case "2":
-            countryDataSelection()
-        case "3":
-            mostDeathOrVaccine()
-        case "4":
-            vaccineType()
-        case "5":
-            popularVaccinePerCountry()
-            
-        case "6":
-            comparisonTotalDeathOrVaccineOnSpecificCountries()
-        case "7":
-            break
-        case _:
-            print("Invalid Input.Please enter a number from the menu.")
+    if menuOption=="1":
+        topFiveVaccine()
+    elif menuOption=="2":
+        countryDataSelection()
+    elif menuOption=="3":
+        mostDeathOrVaccine()
+    elif menuOption=="4":
+        vaccineType()
+    elif menuOption=="5":
+        popularVaccinePerCountry()
+        
+    elif menuOption=="6":
+        comparisonTotalDeathOrVaccineOnSpecificCountries()
+    elif menuOption=="7":
+        break 
+    else:
+        print("Invalid Input.Please enter a number from the menu.")
