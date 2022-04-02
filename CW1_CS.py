@@ -151,11 +151,49 @@ def lineGraph(chartTypes,country,coronavirusInfoType):
     displayVisualisation(chartTypes,country,yAxis,coronavirusInfoType,date,caseOrDeath)
    
     
-    
+def loadData(chartTypes,country,coronavirusInfoType):
    
     
         
+    with open('WHO-COVID-19-global-data.csv', 'r') as f:
+        csv_reader = csv.reader(f)
+        # skip the header
+        next(csv_reader)
+        
+        #Two arrays stores the data for x and y axis number
+        date=[]
+        caseOrDeath=[]
+        cumulativeCaseOrDeath=[]
     
+
+        # retrieve specific data fromthe file and stores it in an array above 
+        for rowData in csv_reader:
+            if rowData[2]==country:
+                date.append(str(rowData[0]))
+                if (coronavirusInfoType==1 and chartTypes==4):
+                    case=int(rowData[5])
+                    caseOrDeath.append(case)
+                    yAxis="Cases"
+
+                elif coronavirusInfoType==2 and chartTypes==4:
+                    death=int(rowData[7])
+                    caseOrDeath.append(death)
+                    yAxis="Deaths"
+
+                elif coronavirusInfoType==1:
+                    case=int(rowData[4])
+                    caseOrDeath.append(case)
+                    yAxis="Cases"
+
+                elif coronavirusInfoType==2:
+                    death=int(rowData[6])
+                    caseOrDeath.append(death)
+                    yAxis="Deaths"
+        #Test Code below(check if data is added in the array)
+        print(date)
+        print(caseOrDeath)
+        
+    displayVisualisation(chartType,country,yAxis,coronavirusInfoType,date,caseOrDeath):
     
        
    
