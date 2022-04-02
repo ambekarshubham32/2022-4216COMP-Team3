@@ -28,25 +28,7 @@ vaccineData=pd.read_csv("vaccination-data.csv")
 #def comparisonTotalDeathOrVaccineOnSpecificCountries():
 
 #Shubham
-def displayVisualisation(chartType,country,yAxis,date,caseOrDeath):
-    #Display all the essentail features of the graph
-    plt.xticks(rotation=90)
-    plt.grid()
-    plt.title("Number of "+yAxis.lower()+" in  "+country, fontsize=18)
-    plt.xlabel('Date -(dd/MM/yyyy)', fontsize=18)
-    plt.ylabel(' '+yAxis,fontsize=18)  
-  
-    plt.legend(['Cases', 'Deaths'])
 
-    if  chartType==1:
-        plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='green')
-    elif chartType==2:
-        plt.bar(date[0::30],caseOrDeath[0::30], color='blue')
-    elif chartType==3:       
-        plt.scatter(date[0::30],caseOrDeath[0::30], marker = 'x', color='blue')
-    elif chartType==4:
-        plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='black') 
-    plt.show()
     
 def loadData(chartTypes,country,coronavirusInfoType):
     
@@ -91,7 +73,24 @@ def loadData(chartTypes,country,coronavirusInfoType):
         
     displayVisualisation(chartTypes,country,yAxis,coronavirusInfoType,date,caseOrDeath)
     
+def displayVisualisation(chartType,country,yAxis,date,caseOrDeath):
+        #Display all the essentail features of the graph
+    plt.xticks(rotation=90)
  
+    plt.title("Number of "+yAxis.lower()+" in  "+country)
+    plt.xlabel('Date -(dd/MM/yyyy)')
+    plt.ylabel(' '+yAxis,)  
+    plt.gride()
+
+    if  chartType==1:
+        plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='green')
+    elif chartType==2:
+        plt.bar(date[0::30],caseOrDeath[0::30], color='blue')
+    elif chartType==3:       
+        plt.scatter(date[0::30],caseOrDeath[0::30], marker = 'x', color='blue')
+    elif chartType==4:
+        plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='black') 
+    plt.show()
 
 
 
