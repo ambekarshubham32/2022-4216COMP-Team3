@@ -66,14 +66,13 @@ def loadData(chartTypes,country,coronavirusInfoType):
                     caseOrDeath.append(death)
                     #yAxis="Deaths"
                 
-                
             #Test Code below(check if data is added in the array)
         print(date)
         print(caseOrDeath)
         
-    displayVisualisation(chartTypes,country,coronavirusInfoType,date,caseOrDeath)
+    displayVisualisation(chartTypes,country,date,coronavirusInfoType,caseOrDeath)
     
-def displayVisualisation(chartType,country,date,caseOrDeath):
+def displayVisualisation(chartTypes,country,date,caseOrDeath):
         #Display all the essentail features of the graph
     plt.xticks(rotation=90)
  
@@ -82,13 +81,13 @@ def displayVisualisation(chartType,country,date,caseOrDeath):
     plt.ylabel(' ')  
     plt.gride()
 
-    if  chartType==1:
+    if  chartTypes==1:
         plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='green')
-    elif chartType==2:
+    elif chartTypes==2:
         plt.bar(date[0::30],caseOrDeath[0::30], color='blue')
-    elif chartType==3:       
+    elif chartTypes==3:       
         plt.scatter(date[0::30],caseOrDeath[0::30], marker = 'x', color='blue')
-    elif chartType==4:
+    elif chartTypes==4:
         plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='black') 
     plt.show()
 
