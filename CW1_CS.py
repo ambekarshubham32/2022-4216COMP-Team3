@@ -64,6 +64,7 @@ def loadData(chartTypes,country,coronavirusInfoType):
                     death=int(rowData[6])
                     caseOrDeath.append(death)
                     yAxis="Deaths"
+                
         #Test Code below(check if data is added in the array)
         print(date)
         print(caseOrDeath)
@@ -110,11 +111,11 @@ def cumulativeGraph(chartTypes,country,coronavirusInfoType):
         print(caseOrDeath)
         
     
-    displayVisualisation(chartTypes,country,yAxis,coronavirusInfoType,date,caseOrDeath)
+    displayVisualisation(chartTypes,country,yAxis,coronavirusInfoType,date,caseOrDeath,case,death)
 
  
 
-def displayVisualisation(chartType,country,yAxis,coronavirusInfoType,date,caseOrDeath):
+def displayVisualisation(chartType,country,yAxis,coronavirusInfoType,date,caseOrDeath, case, death):
     #Display all the essentail features of the graph
     plt.xticks(rotation=90)
     plt.grid()
@@ -132,8 +133,7 @@ def displayVisualisation(chartType,country,yAxis,coronavirusInfoType,date,caseOr
         plt.scatter(date[0::30],caseOrDeath[0::30], marker = 'x', color='blue')
     elif chartType==4:
         plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='black', ms=5) 
-    elif chartType==5:
-        plt.pie(date[0::30],caseOrDeath[0::30]) 
+  
     plt.show()
     
 
@@ -153,7 +153,7 @@ def countryDataSelection():
         print("1.Confimed Cases\n2.Death")
         coronavirusInfoType=int(input())
         print("Different types of charts to presentation data . ")
-        print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph \n5.Pie chart")
+        print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph")
         chartTypes=int(input())
         loadData(chartTypes,country,coronavirusInfoType)
           
