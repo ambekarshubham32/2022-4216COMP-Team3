@@ -279,13 +279,10 @@ def countryDataSelection():
         print("Different types of charts to presentation data . ")
         print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph ")
         chartTypes=int(input())
-        if coronavirusInfoType==1:
-            chartOrGraph(chartTypes,country,coronavirusInfoType)    
-        elif coronavirusInfoType==2:    
-            chartOrGraph(chartTypes,country,coronavirusInfoType)    
+        loadData(chartTypes,country,coronavirusInfoType)
+          
             
-        else:
-            print("Invalid Input")
+        
           
 
 
