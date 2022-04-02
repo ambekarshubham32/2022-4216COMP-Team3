@@ -71,9 +71,9 @@ def loadData(chartTypes,country,coronavirusInfoType):
         print(date)
         print(caseOrDeath)
         
-    displayVisualisation(chartTypes,country,,coronavirusInfoType,date,caseOrDeath)
+    displayVisualisation(chartTypes,country,coronavirusInfoType,date,caseOrDeath)
     
-def displayVisualisation(chartType,country,yAxis,date,caseOrDeath):
+def displayVisualisation(chartType,country,date,caseOrDeath):
         #Display all the essentail features of the graph
     plt.xticks(rotation=90)
  
