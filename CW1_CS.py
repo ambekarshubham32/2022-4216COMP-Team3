@@ -50,36 +50,36 @@ def loadData(chartTypes,country,coronavirusInfoType):
                 if coronavirusInfoType==1:
                     case=int(rowData[4])
                     caseOrDeath.append(case)
-                    #yAxis="Cases"
+                    yAxisLabel="Cases"
 
                 elif coronavirusInfoType==2:
                     death=int(rowData[6])
                     caseOrDeath.append(death)
-                    #yAxis="Deaths"
+                    yAxisLabel="Deaths"
                 elif (coronavirusInfoType==1 and chartTypes==4):
                     case=int(rowData[5])
                     caseOrDeath.append(case)
-                    #yAxis="Cases"
+                    yAxisLabel="Cases"
 
                 elif (coronavirusInfoType==2 and chartTypes==4):
                     death=int(rowData[7])
                     caseOrDeath.append(death)
-                    #yAxis="Deaths"
+                    yAxisLabel="Deaths"
                 
-            #Test Code below(check if data is added in the array)
+        #Test Code below(check if data is added in the array)
         print(date)
         print(caseOrDeath)
         
-    displayVisualisation(chartTypes,country,date,caseOrDeath)
+    displayVisualisation(chartTypes,country,date,caseOrDeath,yAxisLabel)
     
-def displayVisualisation(chartTypes,country,date,caseOrDeath):
+def displayVisualisation(chartTypes,country,date,caseOrDeath,yAxisLabel):
         #Display all the essentail features of the graph
     plt.xticks(rotation=90)
  
-    plt.title("Number of  in  "+country)
-    plt.xlabel('Date -(dd/MM/yyyy)')
-    plt.ylabel(' ')  
-    plt.gride()
+    plt.title("Number of "+" in  "+country)
+    plt.xlabel('Date-(dd/MM/yyyy)')
+    plt.ylabel(' '+yAxisLabel)  
+    plt.grid()
 
     if  chartTypes==1:
         plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='green')
