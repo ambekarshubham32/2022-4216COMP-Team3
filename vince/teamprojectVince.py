@@ -2,6 +2,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
+print("\nWelcome!\n")
+print("\nENTER \n\n"+"P for Pie Chart\n"+"B for Bar Chart\n"+"L for Line Graph\n")
+
+
 plt.figure(figsize=(15,15))
 plt.title("Pie Chart of Most Popular Vaccines from a Group of Countries",fontsize = 20)
 
@@ -12,7 +16,7 @@ with open('C:\\Users\\User\\OneDrive\\Desktop\\teamproject\\mydata.txt','r') as 
     data = file.readlines()
 for i in data:
     broken = i.split('\t')
-    print(broken)
+    #print(broken)
     countries.append(broken[0])
     count.append(int(broken[1]))
     
@@ -31,7 +35,7 @@ with open('C:\\Users\\User\\OneDrive\\Desktop\\teamproject\\mydata.txt','r') as 
   data = file.readlines()
 for i in data:
     broken = i.split('\t')
-    print(broken)
+    #print(broken)
     Countries.append(broken[0])
     count.append(int(broken[1]))
     plt.bar(Countries,count)
@@ -39,6 +43,22 @@ for i in data:
     plt.ylabel('Number of Countries ')
 plt.show()
 
+plt.figure(figsize=(15,15))
+Countries = []
+count = []
+with open('C:\\Users\\User\\OneDrive\\Desktop\\teamproject\\mydata.txt','r') as file:
+  data = file.readlines()
+for i in data:
+    broken = i.split('\t')
+    #print(broken)
+    Countries.append(broken[0])
+    count.append(int(broken[1]))
+plt.plot(Countries,count)
+plt.title("Line Graph of Vaccine Popularity Amongst a Group Of Countries",fontsize = 20)
+plt.xlabel('Vaccines')
+plt.ylabel('Total')
+plt.show()
+
 print("Input the name of a country to show it's vaccine related information ")
-userInput = input()
-print(userInput+" lol")
+secondInput = input()
+print(secondInput+" lol")
