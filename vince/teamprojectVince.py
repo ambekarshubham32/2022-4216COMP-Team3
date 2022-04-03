@@ -6,6 +6,7 @@ print("\nWelcome!\n")
 firstInput = input(print("\nENTER.. \n\n"+"D for Dataset\n"+"P for Pie Chart\n"+"B for Bar Chart\n"+"L for Line Graph\n"))
 
 if firstInput == 'D' :
+  print("\nHere is the data set of popular vaccines from 224 countries\n")
   countries = []
   count = []
   with open('C:\\Users\\User\\OneDrive\\Desktop\\teamproject\\mydata.txt','r') as file:
