@@ -33,7 +33,7 @@ vaccineData=pd.read_csv("vaccination-data.csv")
         
 def loadData(chartTypes,country,coronavirusInfoType,yesOrNoCumulativeGraph):
     
-    #try:
+    try:
         with open('WHO-COVID-19-global-data.csv', 'r') as f:
             csv_reader = csv.reader(f)
             # skip the header
@@ -42,7 +42,7 @@ def loadData(chartTypes,country,coronavirusInfoType,yesOrNoCumulativeGraph):
             #Two arrays stores the data for x and y axis number
             date=[]
             caseOrDeath=[]
-        
+            
             # retrieve specific data fromthe file and stores it in an array above 
 
             for rowData in csv_reader:
@@ -67,14 +67,16 @@ def loadData(chartTypes,country,coronavirusInfoType,yesOrNoCumulativeGraph):
                         caseOrDeath.append(death)
                         yAxisLabel="Deaths"
                     
-            #Test Code below(check if data is added in the array)
-            print(date)
-            print(caseOrDeath)
             
-        displayVisualisation(chartTypes,country,date,caseOrDeath,yAxisLabel)
-    #c()
+            
+            
+    except:
+        print("Something went wrong retreiving data.")
+    else:    
+        displayVisualisation(chartTypes,country,date,caseOrDeath,yAxisLabel,yesOrNoCumulativeGraph)
+            
     
-def displayVisualisation(chartTypes,country,date,caseOrDeath,yAxisLabel):
+def displayVisualisation(chartTypes,country,date,caseOrDeath,yAxisLabel,yesOrNoCumulativeGraph):
   #Display all the essentail features of the graph
     plt.xticks(rotation=90)
     plt.grid()
@@ -90,8 +92,11 @@ def displayVisualisation(chartTypes,country,date,caseOrDeath,yAxisLabel):
         plt.bar(date[0::30],caseOrDeath[0::30], color='blue')
     elif chartTypes==3:       
         plt.scatter(date[0::30],caseOrDeath[0::30], marker = 'x', color='blue')
-    elif chartTypes==4:
-        plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='black') 
+    elif chartTypes==4 and  yesOrNoCumulativeGraph==True:
+        plt.plot(date[0::30],caseOrDeath[0::30], marker = 'o', color='black')
+    else:
+        print("This graph or chart is not available.")
+    
     plt.show()
 
 
@@ -108,24 +113,22 @@ def countryDataSelection():
         print("What type of  Covid 19 related information do you want to know.")
         print("1.Confimed Cases\n2.Death\n Please enter the number   below:")
         coronavirusInfoType=int(input())
-        
+    
             
-    except ValueError:
-        print("Please  enter a number from the given list")  
+    except:
+        print("Invalid input.Please  enter a number from the given list")  
         countryDataSelection()
     else:
         
-            print("Different types of charts to presentation data . ")
-            print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph\n Please enter the number   below:")
+            print("Different types of charts to presentation data.")
+            print("1.Line graph\n2.Bar chart\n3.Scatter chart\n4.Cumulative graph\n Please enter the number below:")
             chartTypes=int(input())
-            if chartTypes==4:
+            if chartTypes==4 :
                 yesOrNoCumulativeGraph=True
             else:
                 yesOrNoCumulativeGraph=False
-                
         
-        
-            loadData(chartTypes,country,coronavirusInfoType,yesOrNoCumulativeGraph,)
+            loadData(chartTypes,country,coronavirusInfoType,yesOrNoCumulativeGraph)
   
 
     
