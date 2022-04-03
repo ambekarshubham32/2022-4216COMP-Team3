@@ -3,10 +3,19 @@ import pandas as pd
 import numpy as np
 
 print("\nWelcome!\n")
-firstInput = input(print("\nENTER.. \n\n"+"P for Pie Chart\n"+"B for Bar Chart\n"+"L for Line Graph\n"))
+firstInput = input(print("\nENTER.. \n\n"+"D for Dataset\n"+"P for Pie Chart\n"+"B for Bar Chart\n"+"L for Line Graph\n"))
+
+if firstInput == 'D' :
+  countries = []
+  count = []
+  with open('C:\\Users\\User\\OneDrive\\Desktop\\teamproject\\mydata.txt','r') as file:
+      data = file.readlines()
+  for i in data:
+      broken = i.split('\t')
+      print(broken)
 
 
-if firstInput == 'P' :
+elif firstInput == 'P' :
   plt.figure(figsize=(15,15))
   plt.title("Pie Chart of Most Popular Vaccines from a Group of Countries",fontsize = 20)
   countries = []
