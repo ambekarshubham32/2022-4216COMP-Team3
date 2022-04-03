@@ -26,7 +26,6 @@ elif firstInput == 'P' :
       data = file.readlines()
   for i in data:
       broken = i.split('\t')
-      #print(broken)
       countries.append(broken[0])
       count.append(int(broken[1]))
   plt.pie(count, explode=explode, labels=countries, autopct='%1.1f%%', startangle = 75, radius= 1,wedgeprops = {"edgecolor" : "black",'linewidth': 1,'antialiased': True})
@@ -43,7 +42,6 @@ elif firstInput == 'B' :
     data = file.readlines()
   for i in data:
       broken = i.split('\t')
-      #print(broken)
       Countries.append(broken[0])
       count.append(int(broken[1]))
       plt.bar(Countries,count)
@@ -59,7 +57,6 @@ else:
       data = file.readlines()
       for i in data:
         broken = i.split('\t')
-        #print(broken)
         Countries.append(broken[0])
         count.append(int(broken[1]))
         plt.plot(Countries,count)
