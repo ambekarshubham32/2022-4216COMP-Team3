@@ -449,7 +449,7 @@ while(True):
 
     #Runs a function depending on the user's input
     if menuOption=="1":
-        topFiveVaccine()
+        vaccineComparisonData()
     elif menuOption=="2":
         countryDataSelection()
     elif menuOption=="3":
