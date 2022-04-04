@@ -99,7 +99,65 @@ def deathAndVaccine():
 
 
 #Matty
-#def vaccineType():
+def vaccineType():
+
+#import modules 
+    import csv
+    import matplotlib.pyplot as plt
+    AZtotal = 0
+    PFtotal = 0
+    Jtotal = 0
+    BJtotal = 0
+    Stotal = 0
+    BHtotal = 0
+    GMtotal = 0
+    MDtotal = 0
+    #read from file of vaccine data 
+    inputfile = csv.reader(open('vaccination-data.csv','r'))
+    with open('vaccination-data.csv', 'r') as f:
+        csv_reader = csv.reader(f)
+        next(csv_reader)
+
+        C = []
+        for row in csv_reader:
+            data = row[11]
+            C.append(data)
+        
+    #search for the number of times each vaccine has been used
+    for item in C:
+        if "AstraZeneca" in item:
+            AZtotal = AZtotal+ 1
+        if "Moderna" in item:
+            MDtotal = MDtotal+ 1
+        if "Pfizer" in item:
+            PFtotal = PFtotal+ 1
+        if "Janssen" in item:
+            Jtotal = Jtotal+ 1
+        if "Beijing" in item:
+            BJtotal = BJtotal+ 1
+        if "SII" in item:
+            Stotal = Stotal+ 1
+        if "Bharat" in item:
+            BHtotal = BHtotal+ 1
+        if "Gamaleya" in item:
+            GMtotal = GMtotal+ 1
+
+    #set up the data ready for the bar graph 
+    VaccinesNames = ["Astrazeneca", "Moderna", "Pfizer", "Janssen", "Beijing", "SII", "Bharat", "Gamaleya"]
+    VaccineDataPlot = [AZtotal, MDtotal, PFtotal, Jtotal, BJtotal, Stotal, BHtotal, GMtotal]
+
+    #plot the data 
+    fig, ax = plt.subplots()#
+    ax.set_xlabel("Vaccine Names")
+    ax.set_ylabel("Number of countries using each vaccine")
+    ax.set_title("Vaccine Bar Graph")
+    ax.bar(VaccinesNames, VaccineDataPlot)
+
+    #show the graph to the user
+    plt.show()
+
+
+
 #Vince 
 #def popularVaccinePerCountry():
 #Charlie
