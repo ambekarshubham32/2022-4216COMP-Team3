@@ -1,15 +1,9 @@
 
-from ctypes.wintypes import tagRECT
-import os
-from tokenize import String
-import pandas as pd
-import matplotlib.pyplot as plt
-import csv
-
 #Importing essentail libraries
 import pandas as pd
 import matplotlib.pyplot as plt
 from tkinter.font import BOLD
+import csv
 
 #Displays the  data from the Excel files
 casesAndDeathData=pd.read_csv("WHO-COVID-19-global-data.csv")
@@ -176,13 +170,6 @@ def totalCasesPerSelectedCountry():
 
             
 
-
-            
-
-
-
-        
-        
 def loadData(chartTypes,country,coronavirusInfoType,yesOrNoCumulativeGraph):
     
     try:
@@ -292,9 +279,8 @@ def countryDataSelection():
 while(True):
     #Displays the menu
     print("Menu")
-    print("1 - Top 5 vaccines\n2 - Find data by country\n3 - What time of year had the\
-        most deaths vaccines?\n4 - Type of vaccines used\n5 - Popular vaccine per\
-        country\n6 - Comparing total deaths and vaccines of specific countries\n7\
+    print("1 - Top 5 vaccines\n2 - Find data by country\n3 - Deaths and Vaccines information\n4 - Type of vaccines used\n5 - Popular vaccine per\
+        country\n6 - Comparing total deaths and cases of specific countries\n7\
         - Quit\nPlease enter the number   below:")
 
     #user enter's the choosen option
@@ -307,14 +293,14 @@ while(True):
     elif menuOption=="2":
         countryDataSelection()
     elif menuOption=="3":
-        mostDeathOrVaccine()
+        deathAndVaccine()
     elif menuOption=="4":
         vaccineType()
     elif menuOption=="5":
         popularVaccinePerCountry()
         
     elif menuOption=="6":
-        comparisonTotalDeathOrVaccineOnSpecificCountries()
+        totalCasesPerSelectedCountry()
     elif menuOption=="7":
         break 
     else:
