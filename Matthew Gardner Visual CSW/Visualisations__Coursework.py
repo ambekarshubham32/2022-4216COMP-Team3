@@ -1,3 +1,4 @@
+#import modules needed 
 import csv
 import matplotlib.pyplot as plt
 
@@ -11,8 +12,8 @@ GMtotal = 0
 MDtotal = 0
 
 
-inputfile = csv.reader(open('M:\python\coursework\VaccineData.csv','r'))
-with open('M:\python\coursework\VaccineData.csv', 'r') as f:
+inputfile = csv.reader(open('vaccination-data.csv','r'))
+with open('vaccination-data.csv', 'r') as f:
     csv_reader = csv.reader(f)
     next(csv_reader)
 
@@ -21,7 +22,7 @@ with open('M:\python\coursework\VaccineData.csv', 'r') as f:
         data = row[11]
         C.append(data)
         
-
+#search through file for the data for each vaccine type
 for item in C:
     if "AstraZeneca" in item:
         AZtotal = AZtotal+ 1
@@ -40,11 +41,13 @@ for item in C:
     if "Gamaleya" in item:
         GMtotal = GMtotal+ 1
 
-
+#put data into a simply order so it can be plotted 
 VaccinesNames = ["Astrazeneca", "Moderna", "Pfizer", "Janssen", "Beijing", "SII", "Bharat", "Gamaleya"]
 VaccineDataPlot = [AZtotal, MDtotal, PFtotal, Jtotal, BJtotal, Stotal, BHtotal, GMtotal]
-
+#plot the data on the bar graph 
 fig, ax = plt.subplots()
+ax.set_xlabel("Vaccine Names")
+ax.set_ylabel("Number of countries using each vaccine")
 ax.set_title("Vaccine Bar Graph")
 ax.bar(VaccinesNames, VaccineDataPlot)
 

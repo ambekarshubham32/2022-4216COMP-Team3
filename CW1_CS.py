@@ -72,7 +72,7 @@ def deathRateGraph():
 
 
     #Menu options
-def menu():
+    def menu():
         strs =("1.Highest Death and Vaccine rate per Country\n"
                 "2.Lowest Death and Vaccine rate per Country\n"
                 "3.Death Rates graph\n"
@@ -84,7 +84,7 @@ def menu():
 
 
     #While loop for the menu
-while True:
+    while True:
         choice = menu()
         if choice == 1:
             highDeathAndVaccine()
