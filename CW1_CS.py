@@ -2,15 +2,9 @@
 from ctypes.wintypes import tagRECT
 import os
 from tokenize import String
-from types import TracebackType
-from matplotlib import dates
-from matplotlib.axis import YAxis
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 import csv
-import datetime
-from sympy import true
 
 #Importing essentail libraries
 import pandas as pd
@@ -100,31 +94,31 @@ def deathAndVaccine():
         plt.show()
 
 
-#Menu options
-def menu():
-    strs =("1.Highest Death and Vaccine rate per Country\n"
+    #Menu options
+    def menu():
+        strs =("1.Highest Death and Vaccine rate per Country\n"
                 "2.Lowest Death and Vaccine rate per Country\n"
                 "3.Death Rates graph\n"
                 )
-    print("Please input choice: ")
+        print("Please input choice: ")
     
-    choice = input(strs)
-    return int(choice)
+        choice = input(strs)
+        return int(choice)
 
 
-#While loop for the menu
-while True:
-    choice = menu()
-    if choice == 1:
-        highDeathAndVaccine()
-    elif choice == 2:
-        lowDeathAndVaccine()
-    elif choice == 3:
-        deathRateGraph()
-    elif choice >3:
-        print("Incorrect input, please try again \n")
-    else:
-        break
+    #While loop for the menu
+    while True:
+        choice = menu()
+        if choice == 1:
+            highDeathAndVaccine()
+        elif choice == 2:
+            lowDeathAndVaccine()
+        elif choice == 3:
+            deathRateGraph()
+        elif choice >3:
+            print("Incorrect input, please try again \n")
+        else:
+            break
 
 
 #Matty
