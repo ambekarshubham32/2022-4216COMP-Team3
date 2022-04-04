@@ -11,7 +11,7 @@ menuSelection=0
 
 
 print("Menu")
-print("1.Top 5 vaccines Harry \n2.Finding data by country Shubham\n3.What time of year had the most deaths/vaccines? Lydia\n4.Type of vaccines used Matty\n5.opular vaccine per country Vince\n6.omparing total deaths and vaccines of specific countries Charlie")
+print("1.Top 5 vaccines Harry \n2.Finding data by country Shubham\n3.What time of year had the most deaths/vaccines? Lydia\n4.Type of vaccines used Matty\n5.opular vaccine per country Vince\n6.omparing total deaths and cases of specific countries Charlie")
 
 menuOption=int(input("Please enter the number   here:"))
 menuSelection(menuOption)
@@ -30,7 +30,7 @@ def  menuSelection(menuOption):
     elif menuOption==5:
         popularVaccinePerCountry()
     elif menuOption==6:
-        comparisonTotalDeathOrVaccineOnSpecificCountries()
+        totalCasesPerSelectedCountry()
     else:
         print("Please  enter a number from  the menu")   
         
