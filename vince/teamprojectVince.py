@@ -1,13 +1,20 @@
+#Vince 
+#def popularVaccinePerCountry():
+
+#user menu
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
+#introduuction
+def popularVaccinePerCountry():
+  print("\nWelcome!\n")
 
-print("\nWelcome!\n")
-
+#while loop so program repeats for user to select multiple options
 while(True):
   firstInput = input(print("\nENTER.. \n\n"+"D for Dataset\n"+"P for Pie Chart\n"+"B for Bar Chart\n"+"L for Line Graph\n"+"Q for quit"))
 
+#quit option for user to exit the program
   if firstInput == 'Q' :
     print("\nThank you for using the service!\n")
     break
@@ -22,7 +29,7 @@ while(True):
         broken = i.split('\t')
         print(broken)
 
-
+#Pie chart construction
   elif firstInput == 'P' :
     plt.figure(figsize=(15,15))
     plt.title("Pie Chart of Most Popular Vaccines from a Group of Countries",fontsize = 20)
@@ -40,6 +47,7 @@ while(True):
     plt.axis('equal')
     plt.show()
 
+#Bar chart construction
   elif firstInput == 'B' :
     plt.figure(figsize=(15,15))
     plt.title("Bar Chart of Distribution of Vaccines",fontsize = 20)
@@ -56,6 +64,7 @@ while(True):
         plt.ylabel('Number of Countries')
     plt.show()
 
+#Line Chart construction
   else:
     plt.figure(figsize=(15,15))
     Countries = []
