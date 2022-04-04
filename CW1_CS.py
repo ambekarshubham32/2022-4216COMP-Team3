@@ -149,7 +149,7 @@ def vaccineType():
     VaccineDataPlot = [AZtotal, MDtotal, PFtotal, Jtotal, BJtotal, Stotal, BHtotal, GMtotal]
 
     #plot the data 
-    fig, ax = plt.subplots()#
+    fig, ax = plt.subplots()
     ax.set_xlabel("Vaccine Names")
     ax.set_ylabel("Number of countries using each vaccine")
     ax.set_title("Vaccine Bar Graph")
