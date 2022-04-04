@@ -12,3 +12,6 @@ After you are brought to my section from the main menu, you will be asked which 
 
 -Matthew 
 To access my visualisations and code you will need to enter selection 4 in the menu. Once you have done that, to will go directly to my graph which demonstrates the different types of vaccines used. this will be displayed as a bar chart. On the y axis, you will see the number of countries which use the different vaccines mentioned. On the x axis, you will see the different vaccines used accross the globe. 
+
+-Vince
+Once you are at my section, you will see multiple options with associated letters for you to input. You will be able to access specific parts of your choice by inputing the letter. For instance, enter P for program to display Pie Chart. Note you can input Q to quit the program once you are finished.
