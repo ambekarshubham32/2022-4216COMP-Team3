@@ -9,6 +9,7 @@ while(True):
   firstInput = input(print("\nENTER.. \n\n"+"D for Dataset\n"+"P for Pie Chart\n"+"B for Bar Chart\n"+"L for Line Graph\n"+"Q for quit"))
 
   if firstInput == 'Q' :
+    print("\nThank you for using the service!\n")
     break
   
   if firstInput == 'D' :

@@ -9,3 +9,6 @@ To run my visualisation the user will need to run my code and go through the men
 
 -Charlie
 After you are brought to my section from the main menu, you will be asked which country you would like to see data for. You must enter the country in the correct format, which is with a capital letter and spelt correctly. After you enter this specific country the data set for this country will be displayed and then the graph will be plotted and displayed for you in a line graph form with the dates on the x-axis, and cases and deaths on the y-axis.
+
+-Matthew 
+To access my visualisations and code you will need to enter selection 4 in the menu. Once you have done that, to will go directly to my graph which demonstrates the different types of vaccines used. this will be displayed as a bar chart. On the y axis, you will see the number of countries which use the different vaccines mentioned. On the x axis, you will see the different vaccines used accross the globe. 

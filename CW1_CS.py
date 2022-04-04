@@ -19,14 +19,12 @@ vaccineData=pd.read_csv("vaccination-data.csv")
     
 #Harry
 #def topFiveVaccine(): 
-#Lydia    
+#Lydia 
+ #Highest death and vaccine rate in both files
 def deathAndVaccine(): 
-#Reading files
-    covid=pd.read_csv("WHO-COVID-19-global-data.csv")
-    vaccination_data=pd.read_csv("vaccination-data.csv")
 
-    #Highest death and vaccine rate in both files
-    def highDeathAndVaccine():
+
+
     #scan through file and get country with the highets death/vaccine data
     
         death_rate = covid.iloc[covid['Cumulative_deaths'].argmax()]
@@ -37,7 +35,7 @@ def deathAndVaccine():
 
 
     #Lowest death and vaccine rate in both files
-    def lowDeathAndVaccine():
+def lowDeathAndVaccine():
 
         death_rate = covid.iloc[covid['Cumulative_deaths'].argmin()]
         vaccine_rate = vaccineData.iloc[vaccination_data['TOTAL_VACCINATIONS'].argmin()]
@@ -46,8 +44,8 @@ def deathAndVaccine():
         print("The country with the lowest vaccination rate is:  ", vaccine_rate.COUNTRY, vaccine_rate.TOTAL_VACCINATIONS, "\n")
 
    
-    #Graph for death and vaccine rate per country
-    def deathRateGraph():
+#Graph for death and vaccine rate per country
+def deathRateGraph():
         #user input for the country of choice
         print("please input a country")
         country_selected = input()
@@ -160,7 +158,6 @@ def vaccineType():
 #Vince 
 #def popularVaccinePerCountry():
 #Charlie
-#def comparisonTotalDeathOrVaccineOnSpecificCountries():
 def totalCasesPerSelectedCountry():
     print ("What Country would you like data for?")
     country = input()
@@ -245,10 +242,7 @@ def loadData(chartTypes,country,coronavirusInfoType,yesOrNoCumulativeGraph):
                         death=int(rowData[7])
                         caseOrDeath.append(death)
                         yAxisLabel="Deaths"
-                    
-            
-            
-            
+                        
     except:
         print("Something went wrong retreiving data.")
     else:    
