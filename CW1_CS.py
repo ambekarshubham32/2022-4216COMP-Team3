@@ -1,4 +1,4 @@
-# essentail libraries
+
 from ctypes.wintypes import tagRECT
 import os
 from tokenize import String
@@ -11,25 +11,183 @@ import numpy as np
 import csv
 import datetime
 from sympy import true
+
+#Importing essentail libraries
+import pandas as pd
+import matplotlib.pyplot as plt
+from tkinter.font import BOLD
+
 #Displays the  data from the Excel files
 casesAndDeathData=pd.read_csv("WHO-COVID-19-global-data.csv")
 vaccineData=pd.read_csv("vaccination-data.csv")
+
+
+
+
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+#Harry
+#def topFiveVaccine():
+    
 
     
 #Harry
 #def topFiveVaccine(): 
 #Lydia    
-#def mostDeathOrVaccine(): 
+def deathAndVaccine(): 
+#Reading files
+    covid=pd.read_csv("WHO-COVID-19-global-data.csv")
+    vaccination_data=pd.read_csv("vaccination-data.csv")
+
+    #Highest death and vaccine rate in both files
+    def highDeathAndVaccine():
+    #scan through file and get country with the highets death/vaccine data
+    
+        death_rate = covid.iloc[covid['Cumulative_deaths'].argmax()]
+        vaccine_rate = vaccination_data.iloc[vaccination_data['TOTAL_VACCINATIONS'].argmax()]
+
+        print("The country with the highest death rate is:  ", death_rate.Country, death_rate.Cumulative_cases)
+        print("The country with the highest vaccination rate is:  ", vaccine_rate.COUNTRY, vaccine_rate.TOTAL_VACCINATIONS, "\n")
+
+
+    #Lowest death and vaccine rate in both files
+    def lowDeathAndVaccine():
+
+        death_rate = covid.iloc[covid['Cumulative_deaths'].argmin()]
+        vaccine_rate = vaccination_data.iloc[vaccination_data['TOTAL_VACCINATIONS'].argmin()]
+
+        print("The country with the lowest death rate is:  ", death_rate.Country, death_rate.Cumulative_cases)
+        print("The country with the lowest vaccination rate is:  ", vaccine_rate.COUNTRY, vaccine_rate.TOTAL_VACCINATIONS, "\n")
+
+   
+    #Graph for death and vaccine rate per country
+    def deathRateGraph():
+        #user input for the country of choice
+        print("please input a country")
+        country_selected = input()
+
+        #linking files to country selected
+        country_data = covid[covid.Country==country_selected]
+
+        #creating death cases graph
+        fig,ax = plt.subplots()
+        fig.suptitle("Number of Deaths from " + country_selected, fontsize=18, weight=BOLD)
+
+        #plotting and labeling country death graph
+        ax.plot(country_data.why[0::70], country_data.Cumulative_deaths[0::70], "r--",linewidth=3)
+        ax.set_xlabel("Dates", fontsize=12, weight=BOLD)
+        ax.set_ylabel("Number of Deaths Reported", fontsize=12, weight=BOLD)
+
+        #graph additions/colours
+        ax.set_facecolor("xkcd:pale")
+        plt.tight_layout()
+        ax.grid(True)
+        plt.legend("deaths")
+
+        plt.show()
+
+
+#Menu options
+def menu():
+    strs =("1.Highest Death and Vaccine rate per Country\n"
+                "2.Lowest Death and Vaccine rate per Country\n"
+                "3.Death Rates graph\n"
+                )
+    print("Please input choice: ")
+    
+    choice = input(strs)
+    return int(choice)
+
+
+#While loop for the menu
+while True:
+    choice = menu()
+    if choice == 1:
+        highDeathAndVaccine()
+    elif choice == 2:
+        lowDeathAndVaccine()
+    elif choice == 3:
+        deathRateGraph()
+    elif choice >3:
+        print("Incorrect input, please try again \n")
+    else:
+        break
+
+
 #Matty
 #def vaccineType():
 #Vince 
 #def popularVaccinePerCountry():
 #Charlie
 #def comparisonTotalDeathOrVaccineOnSpecificCountries():
+def totalCasesPerSelectedCountry():
+    print ("What Country would you like data for?")
+    country = input()
+    #Asking user for country to base data around
+
+    countryData = casesAndDeathData[casesAndDeathData.Country == country]
+    print(countryData)
+    #Finding and printing data for users choice
+
+    fig, ax = plt.subplots(figsize=(24, 12))
+    fig.suptitle(country + " total cases and deaths", fontsize=18)
+    ax.set_title("From 03/01/2020 to 23/12/21", fontsize=18)
+    #Setting the size of the graph and titling it
+
+    plt.plot(countryData.why[0::60], countryData.Cumulative_cases[0::60], 'g*--')
+    plt.plot(countryData.why[0::60], countryData.Cumulative_deaths[0::60], 'rD--')
+    plt.legend(['Cases', 'Deaths'])
+    plt.xlabel('Date', fontsize=18)
+    plt.ylabel('Cases/Deaths', fontsize=18)
+    #Plotting the graph and its axis
+
+    ax.set_facecolor('xkcd:light cyan')
+    fig.patch.set_facecolor('xkcd:silver')
+    #Changing colour of the graph and the background
+
+    plt.grid(color='black', linestyle='-.', linewidth=0.7)
+    #Adding a grid to the graph
+
+    plt.show()
+    #Displaying the graph
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #Shubham
 
-    
+            
+
+
+            
+
+
+
+        
         
 def loadData(chartTypes,country,coronavirusInfoType,yesOrNoCumulativeGraph):
     
@@ -167,3 +325,25 @@ while(True):
         break 
     else:
         print("Invalid Input.Please enter a number from the menu.")
+
+         
+           
+    
+
+
+
+
+
+
+    
+
+ 
+         
+           
+    
+
+
+
+
+
+
