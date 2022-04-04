@@ -1,7 +1,7 @@
 #Importing libraries
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from tkinter.font import BOLD
 
 #Reading files
 covid=pd.read_csv("WHO-COVID-19-global-data.csv")
@@ -29,29 +29,29 @@ def lowDeathAndVaccine():
 
    
 #Graph for death and vaccine rate per country
-def deathAndVaccineGraph():
+def deathRateGraph():
+    #user input for the country of choice
     print("please input a country")
     country_selected = input()
 
     #linking files to country selected
     country_data = covid[covid.Country==country_selected]
-    vaccines = vaccination_data[vaccination_data.COUNTRY==country_selected]
 
-    #creating 2 graphs
-    fig, (ax1, ax2) = plt.subplots(2)
-    fig.suptitle("Number of Deaths and Vaccinations from " + country_selected, fontsize=18)
+    #creating death cases graph
+    fig,ax = plt.subplots()
+    fig.suptitle("Number of Deaths from " + country_selected, fontsize=18, weight=BOLD)
 
     #plotting and labeling country death graph
-    ax1.plot(country_data.why[0::96], country_data.Cumulative_deaths[0::96], "mD--")
-    ax1.set_xlabel("Dates")
-    ax1.set_ylabel("Deaths Reported")
+    ax.plot(country_data.why[0::70], country_data.Cumulative_deaths[0::70], "r--",linewidth=3)
+    ax.set_xlabel("Dates", fontsize=12, weight=BOLD)
+    ax.set_ylabel("Number of Deaths Reported", fontsize=12, weight=BOLD)
 
-    #plotting and labeling country and vaccinations graph
-    ax2.plot(vaccines.DATE_UPDATED, vaccines.TOTAL_VACCINATIONS, "mD--")
-    ax2.set_xlabel("Dates")
-    ax2.set_ylabel("Vaccinations Reported")
-
+    #graph additions/colours
+    ax.set_facecolor("xkcd:pale")
+    plt.tight_layout()
+    ax.grid(True)
     plt.legend("deaths")
+
     plt.show()
 
 
@@ -59,8 +59,8 @@ def deathAndVaccineGraph():
 def menu():
     strs =("1.Highest Death and Vaccine rate per Country\n"
                 "2.Lowest Death and Vaccine rate per Country\n"
-                "3.Death and Vaccines rates graph\n"
-                "4. Return to previous menu :\n ")
+                "3.Death Rates graph\n"
+                )
     print("Please input choice: ")
     
     choice = input(strs)
@@ -75,7 +75,7 @@ while True:
     elif choice == 2:
         lowDeathAndVaccine()
     elif choice == 3:
-        deathAndVaccineGraph()
+        deathRateGraph()
     elif choice >3:
         print("Incorrect input, please try again \n")
     else:
