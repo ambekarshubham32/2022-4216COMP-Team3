@@ -1,35 +1,14 @@
-
+#imported libraries
 from ctypes.wintypes import tagRECT
-import os
 from tokenize import String
 import pandas as pd
 import matplotlib.pyplot as plt
 import csv
-
-#Importing essentail libraries
-import pandas as pd
-import matplotlib.pyplot as plt
 from tkinter.font import BOLD
 
 #Displays the  data from the Excel files
 casesAndDeathData=pd.read_csv("WHO-COVID-19-global-data.csv")
 vaccineData=pd.read_csv("vaccination-data.csv")
-
-
-
-
-        
-        
-        
-
-
-
-
-
-
-
-
-
 
 
 
@@ -51,7 +30,7 @@ def deathAndVaccine():
     #scan through file and get country with the highets death/vaccine data
     
         death_rate = covid.iloc[covid['Cumulative_deaths'].argmax()]
-        vaccine_rate = vaccination_data.iloc[vaccination_data['TOTAL_VACCINATIONS'].argmax()]
+        vaccine_rate = vaccineData.iloc[vaccineData['TOTAL_VACCINATIONS'].argmax()]
 
         print("The country with the highest death rate is:  ", death_rate.Country, death_rate.Cumulative_cases)
         print("The country with the highest vaccination rate is:  ", vaccine_rate.COUNTRY, vaccine_rate.TOTAL_VACCINATIONS, "\n")
@@ -61,7 +40,7 @@ def deathAndVaccine():
     def lowDeathAndVaccine():
 
         death_rate = covid.iloc[covid['Cumulative_deaths'].argmin()]
-        vaccine_rate = vaccination_data.iloc[vaccination_data['TOTAL_VACCINATIONS'].argmin()]
+        vaccine_rate = vaccineData.iloc[vaccination_data['TOTAL_VACCINATIONS'].argmin()]
 
         print("The country with the lowest death rate is:  ", death_rate.Country, death_rate.Cumulative_cases)
         print("The country with the lowest vaccination rate is:  ", vaccine_rate.COUNTRY, vaccine_rate.TOTAL_VACCINATIONS, "\n")
