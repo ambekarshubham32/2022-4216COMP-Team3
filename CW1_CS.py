@@ -1,43 +1,16 @@
 
+#imported libraries
 from ctypes.wintypes import tagRECT
-import os
 from tokenize import String
-from types import TracebackType
-from matplotlib import dates
-from matplotlib.axis import YAxis
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 import csv
-import datetime
-from sympy import true
-
-#Importing essentail libraries
-import pandas as pd
-import matplotlib.pyplot as plt
 from tkinter.font import BOLD
+import csv
 
 #Displays the  data from the Excel files
 casesAndDeathData=pd.read_csv("WHO-COVID-19-global-data.csv")
 vaccineData=pd.read_csv("vaccination-data.csv")
-
-
-
-
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
 
 #Harry
 #def topFiveVaccine():
@@ -55,7 +28,7 @@ def deathAndVaccine():
     #scan through file and get country with the highets death/vaccine data
     
         death_rate = covid.iloc[covid['Cumulative_deaths'].argmax()]
-        vaccine_rate = vaccination_data.iloc[vaccination_data['TOTAL_VACCINATIONS'].argmax()]
+        vaccine_rate = vaccineData.iloc[vaccineData['TOTAL_VACCINATIONS'].argmax()]
 
         print("The country with the highest death rate is:  ", death_rate.Country, death_rate.Cumulative_cases)
         print("The country with the highest vaccination rate is:  ", vaccine_rate.COUNTRY, vaccine_rate.TOTAL_VACCINATIONS, "\n")
@@ -65,7 +38,7 @@ def deathAndVaccine():
 def lowDeathAndVaccine():
 
         death_rate = covid.iloc[covid['Cumulative_deaths'].argmin()]
-        vaccine_rate = vaccination_data.iloc[vaccination_data['TOTAL_VACCINATIONS'].argmin()]
+        vaccine_rate = vaccineData.iloc[vaccination_data['TOTAL_VACCINATIONS'].argmin()]
 
         print("The country with the lowest death rate is:  ", death_rate.Country, death_rate.Cumulative_cases)
         print("The country with the lowest vaccination rate is:  ", vaccine_rate.COUNTRY, vaccine_rate.TOTAL_VACCINATIONS, "\n")
@@ -98,16 +71,16 @@ def deathRateGraph():
         plt.show()
 
 
-#Menu options
-def menu():
-    strs =("1.Highest Death and Vaccine rate per Country\n"
+    #Menu options
+    def menu():
+        strs =("1.Highest Death and Vaccine rate per Country\n"
                 "2.Lowest Death and Vaccine rate per Country\n"
                 "3.Death Rates graph\n"
                 )
-    print("Please input choice: ")
+        print("Please input choice: ")
     
-    choice = input(strs)
-    return int(choice)
+        choice = input(strs)
+        return int(choice)
 
 
     #While loop for the menu
@@ -126,7 +99,65 @@ def menu():
 
 
 #Matty
-#def vaccineType():
+def vaccineType():
+
+#import modules 
+    import csv
+    import matplotlib.pyplot as plt
+    AZtotal = 0
+    PFtotal = 0
+    Jtotal = 0
+    BJtotal = 0
+    Stotal = 0
+    BHtotal = 0
+    GMtotal = 0
+    MDtotal = 0
+    #read from file of vaccine data 
+    inputfile = csv.reader(open('vaccination-data.csv','r'))
+    with open('vaccination-data.csv', 'r') as f:
+        csv_reader = csv.reader(f)
+        next(csv_reader)
+
+        C = []
+        for row in csv_reader:
+            data = row[11]
+            C.append(data)
+        
+    #search for the number of times each vaccine has been used
+    for item in C:
+        if "AstraZeneca" in item:
+            AZtotal = AZtotal+ 1
+        if "Moderna" in item:
+            MDtotal = MDtotal+ 1
+        if "Pfizer" in item:
+            PFtotal = PFtotal+ 1
+        if "Janssen" in item:
+            Jtotal = Jtotal+ 1
+        if "Beijing" in item:
+            BJtotal = BJtotal+ 1
+        if "SII" in item:
+            Stotal = Stotal+ 1
+        if "Bharat" in item:
+            BHtotal = BHtotal+ 1
+        if "Gamaleya" in item:
+            GMtotal = GMtotal+ 1
+
+    #set up the data ready for the bar graph 
+    VaccinesNames = ["Astrazeneca", "Moderna", "Pfizer", "Janssen", "Beijing", "SII", "Bharat", "Gamaleya"]
+    VaccineDataPlot = [AZtotal, MDtotal, PFtotal, Jtotal, BJtotal, Stotal, BHtotal, GMtotal]
+
+    #plot the data 
+    fig, ax = plt.subplots()
+    ax.set_xlabel("Vaccine Names")
+    ax.set_ylabel("Number of countries using each vaccine")
+    ax.set_title("Vaccine Bar Graph")
+    ax.bar(VaccinesNames, VaccineDataPlot)
+
+    #show the graph to the user
+    plt.show()
+
+
+
 #Vince 
 #def popularVaccinePerCountry():
 #Charlie
@@ -179,13 +210,6 @@ def totalCasesPerSelectedCountry():
 
             
 
-
-            
-
-
-
-        
-        
 def loadData(chartTypes,country,coronavirusInfoType,yesOrNoCumulativeGraph):
     
     try:
@@ -292,9 +316,8 @@ def countryDataSelection():
 while(True):
     #Displays the menu
     print("Menu")
-    print("1 - Top 5 vaccines\n2 - Find data by country\n3 - What time of year had the\
-        most deaths vaccines?\n4 - Type of vaccines used\n5 - Popular vaccine per\
-        country\n6 - Comparing total deaths and vaccines of specific countries\n7\
+    print("1 - Top 5 vaccines\n2 - Find data by country\n3 - Deaths and Vaccines information\n4 - Type of vaccines used\n5 - Popular vaccine per\
+        country\n6 - Comparing total deaths and cases of specific countries\n7\
         - Quit\nPlease enter the number   below:")
 
     #user enter's the choosen option
