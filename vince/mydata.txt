@@ -1,0 +1,11 @@
+AstraZeneca - Vaxzevria	128
+Beijing CNBG - BBIBP-CorV	41
+Janssen - Ad26.COV 2-S	18
+SII - Covishield	6
+Moderna - Spikevax	3
+Bharat - Covaxin	3
+Pfizer BioNTech - Comirnaty	8
+Anhui ZL - Recombinant	3
+CIGB - CIGB-66	11
+SRCVB - EpiVacCorona	1
+Gamaleya - Gam-Covid-Vac	2
