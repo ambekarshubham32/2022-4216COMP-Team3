@@ -143,18 +143,15 @@ def vaccineType():
             BHtotal = BHtotal+ 1
         if "Gamaleya" in item:
             GMtotal = GMtotal+ 1
-
     #set up the data ready for the bar graph 
     VaccinesNames = ["Astrazeneca", "Moderna", "Pfizer", "Janssen", "Beijing", "SII", "Bharat", "Gamaleya"]
     VaccineDataPlot = [AZtotal, MDtotal, PFtotal, Jtotal, BJtotal, Stotal, BHtotal, GMtotal]
-
     #plot the data 
     fig, ax = plt.subplots()
     ax.set_xlabel("Vaccine Names")
     ax.set_ylabel("Number of countries using each vaccine")
     ax.set_title("Vaccine Bar Graph")
     ax.bar(VaccinesNames, VaccineDataPlot)
-
     #show the graph to the user
     plt.show()
 
