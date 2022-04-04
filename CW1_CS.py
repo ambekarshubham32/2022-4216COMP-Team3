@@ -10,8 +10,6 @@ from tkinter.font import BOLD
 casesAndDeathData=pd.read_csv("WHO-COVID-19-global-data.csv")
 vaccineData=pd.read_csv("vaccination-data.csv")
 
-
-
 #Harry
 #def topFiveVaccine():
     
