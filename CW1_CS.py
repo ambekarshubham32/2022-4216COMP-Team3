@@ -46,14 +46,12 @@ vaccineData=pd.read_csv("vaccination-data.csv")
     
 #Harry
 #def topFiveVaccine(): 
-#Lydia    
+#Lydia 
+ #Highest death and vaccine rate in both files
 def deathAndVaccine(): 
-#Reading files
-    covid=pd.read_csv("WHO-COVID-19-global-data.csv")
-    vaccination_data=pd.read_csv("vaccination-data.csv")
 
-    #Highest death and vaccine rate in both files
-    def highDeathAndVaccine():
+
+
     #scan through file and get country with the highets death/vaccine data
     
         death_rate = covid.iloc[covid['Cumulative_deaths'].argmax()]
@@ -64,7 +62,7 @@ def deathAndVaccine():
 
 
     #Lowest death and vaccine rate in both files
-    def lowDeathAndVaccine():
+def lowDeathAndVaccine():
 
         death_rate = covid.iloc[covid['Cumulative_deaths'].argmin()]
         vaccine_rate = vaccination_data.iloc[vaccination_data['TOTAL_VACCINATIONS'].argmin()]
@@ -73,8 +71,8 @@ def deathAndVaccine():
         print("The country with the lowest vaccination rate is:  ", vaccine_rate.COUNTRY, vaccine_rate.TOTAL_VACCINATIONS, "\n")
 
    
-    #Graph for death and vaccine rate per country
-    def deathRateGraph():
+#Graph for death and vaccine rate per country
+def deathRateGraph():
         #user input for the country of choice
         print("please input a country")
         country_selected = input()
@@ -112,19 +110,19 @@ def menu():
     return int(choice)
 
 
-#While loop for the menu
-while True:
-    choice = menu()
-    if choice == 1:
-        highDeathAndVaccine()
-    elif choice == 2:
-        lowDeathAndVaccine()
-    elif choice == 3:
-        deathRateGraph()
-    elif choice >3:
-        print("Incorrect input, please try again \n")
-    else:
-        break
+    #While loop for the menu
+    while True:
+        choice = menu()
+        if choice == 1:
+            highDeathAndVaccine()
+        elif choice == 2:
+            lowDeathAndVaccine()
+        elif choice == 3:
+            deathRateGraph()
+        elif choice >3:
+            print("Incorrect input, please try again \n")
+        else:
+            break
 
 
 #Matty
@@ -132,7 +130,6 @@ while True:
 #Vince 
 #def popularVaccinePerCountry():
 #Charlie
-#def comparisonTotalDeathOrVaccineOnSpecificCountries():
 def totalCasesPerSelectedCountry():
     print ("What Country would you like data for?")
     country = input()
@@ -224,10 +221,7 @@ def loadData(chartTypes,country,coronavirusInfoType,yesOrNoCumulativeGraph):
                         death=int(rowData[7])
                         caseOrDeath.append(death)
                         yAxisLabel="Deaths"
-                    
-            
-            
-            
+                        
     except:
         print("Something went wrong retreiving data.")
     else:    
@@ -313,14 +307,14 @@ while(True):
     elif menuOption=="2":
         countryDataSelection()
     elif menuOption=="3":
-        mostDeathOrVaccine()
+        deathAndVaccine()
     elif menuOption=="4":
         vaccineType()
     elif menuOption=="5":
         popularVaccinePerCountry()
         
     elif menuOption=="6":
-        comparisonTotalDeathOrVaccineOnSpecificCountries()
+        totalCasesPerSelectedCountry()
     elif menuOption=="7":
         break 
     else:
