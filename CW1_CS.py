@@ -41,7 +41,6 @@ def vaccineComparisonData():
 
     ax.bar(countryData.COUNTRY, countryData.TOTAL_VACCINATIONS)
     ax.bar(second_country.COUNTRY, second_country.TOTAL_VACCINATIONS)
-    plt.legend([choice, second_choice])
     #plots the data onto the bar chart
 
     ax.set_facecolor('xkcd:grey')
