@@ -18,3 +18,7 @@ Once you are at my section, you will see multiple options with associated letter
 
 -Harry 
 Once you are redirected to my section of the programme, the user will be greeted with a message that asks you to input the name of a country. Doing so will print the total number of vaccines for this country. Next, the user will be asked to input a second country’s name to compare data with. This data will be printed and a bar chart will be produced, demonstrating a visual of the total number of vaccinations in both countries. 
+
+
+-Shubham
+In my program, three questions are asked in order to create the visualisation.The first question is about the country. The user needs to input the country name with a capital letter at the beginning. The second question is about what type of COVID-19 information the user wants to know.The user has to enter a numerical value here. The third and final question is about what types of visualisation the user wants to see. There are four visualisation types.Also, the input should be numerical.After that, the visualisation appears on a separate window.
