@@ -103,7 +103,6 @@ def deathAndVaccine():
         ax.set_facecolor("xkcd:pale")
         plt.tight_layout()
         ax.grid(True)
-        plt.legend("deaths")
 
         plt.show()
 
