@@ -196,15 +196,9 @@ def vaccineType():
 
 
 #Vince 
-#def popularVaccinePerCountry():
-
-#user menu
-import matplotlib.pyplot as plt
-import pandas as pd
-import numpy as np
+def popularVaccinePerCountry():
 
 #introduuction
-def popularVaccinePerCountry():
   print("\nWelcome!\n")
 
 #while loop so program repeats for user to select multiple options
@@ -280,7 +274,6 @@ while(True):
 
 
 #Charlie
-#def comparisonTotalDeathOrVaccineOnSpecificCountries():
 def totalCasesPerSelectedCountry():
     print ("What Country would you like data for?")
     country = input()
@@ -312,23 +305,7 @@ def totalCasesPerSelectedCountry():
     plt.show()
     #Displaying the graph
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#Shubham
-
-            
+#Shubham          
 
 def loadData(chartTypes,country,coronavirusInfoType,yesOrNoCumulativeGraph):
     
